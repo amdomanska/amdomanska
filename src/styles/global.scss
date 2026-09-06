@@ -1,0 +1,63 @@
+:root {
+    --colour-background: #f3f0e7;
+    --colour-surface: #fcfaf4;
+    --colour-text: #18352d;
+    --colour-muted: #5e6b64;
+    --colour-border: #c9d0c8;
+
+    --font-body:
+            "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display:
+            "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+    --page-width: 72rem;
+    --reading-width: 46rem;
+    --page-gutter: clamp(1.25rem, 4vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--colour-text);
+    background: var(--colour-background);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+body {
+    min-width: 20rem;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-block-start: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+::selection {
+    color: var(--colour-background);
+    background: var(--colour-text);
+}

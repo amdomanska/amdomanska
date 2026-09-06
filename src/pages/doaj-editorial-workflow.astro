@@ -1,0 +1,490 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/doaj.scss"
+import {Image} from "astro:assets";
+import triageOrderPhoto from "../assets/images/doaj/triage-order-photo.png";
+
+const project = {
+    client: "Directory of Open Access Journals",
+    role: "Product designer",
+    contributions: "Product discovery · Requirements definition · Workflow and interaction design · UX/UI design · Accessibility · Client facilitation",
+    team: "Cross-functional DOAJ and Cottage Labs team",
+    period: "2025 – present",
+    status: "Triage design complete · implementation in progress",
+};
+---
+
+<BaseLayout
+        title="DOAJ Editorial Workflow"
+        description="Designing a guided, accessible editorial workflow for DOAJ."
+>
+    <main class="doaj-case-study">
+        <article class="case-study">
+            <header class="project-hero">
+                <p class="project-hero__client">{project.client}</p>
+
+                <h1>
+                    Making a complex editorial workflow easier to learn and more efficient to
+                    complete
+                </h1>
+
+                <p class="project-hero__summary">
+                    I am redesigning DOAJ’s editorial workflow: defining how applications move between stages, how
+                    reviewers complete and record their work, and how decisions are supported across the process. Triage
+                    is the first module I have designed in detail, establishing reusable navigation, interaction and
+                    accessibility patterns for the stages that follow.
+                </p>
+
+                <dl class="project-meta">
+                    <div>
+                        <dt>Role</dt>
+                        <dd>{project.role}</dd>
+                    </div>
+
+                    <div>
+                        <dt>Period</dt>
+                        <dd>{project.period}</dd>
+                    </div>
+
+                    <div>
+                        <dt>Status</dt>
+                        <dd>{project.status}</dd>
+                    </div>
+
+                    <div>
+                        <dt>Contributions</dt>
+                        <dd>{project.contributions}</dd>
+                    </div>
+
+                    <div>
+                        <dt>Team</dt>
+                        <dd>{project.team}</dd>
+                    </div>
+                </dl>
+            </header>
+
+            <section class="case-study__section">
+                <h2>A specialist workflow hidden inside an application form</h2>
+
+                <p>
+                    The Directory of Open Access Journals (DOAJ) evaluates applications from publishers to decide
+                    whether journals meet its criteria for inclusion. The process involves DOAJ staff and volunteers
+                    with different responsibilities, from the initial Triage through further review to the final
+                    decision.
+                </p>
+
+                <p>
+                    The existing system presents reviewers with what is essentially an extended version of the
+                    publisher’s application form. It contains the submitted information, but not the editorial work
+                    around it: reviewers must know which checks to perform, which external resources to consult and how
+                    their findings affect what happens next. Triage has therefore become dependent on one highly
+                    experienced specialist, making the work difficult to share and new reviewers difficult to train.
+                </p>
+
+                <figure class="case-study-figure old">
+                    <div class="image-fade-bottom">
+                        <img
+                                src="/images/doaj/old.png"
+                                width="1288"
+                                height="2567"
+                                loading="lazy"
+                                alt="The existing DOAJ editorial interface, with administrative controls and application sections stacked in one long, continuous form."
+                        />
+                    </div>
+                    <figcaption>
+                        And it keeps going...
+                    </figcaption>
+                </figure>
+
+                <p>
+                    DOAJ already had an established visual identity from an earlier service-wide redesign, and a
+                    previous UX evaluation had identified problems with the application form. However, the editorial
+                    workflow that would address those problems still needed to be designed from the ground up.
+                </p>
+
+                <p>
+                    I had already worked with DOAJ for several years, contributing to smaller improvements across
+                    product design, UI and front-end development. The Editorial Workflow Project became a major
+                    workstream within that continuing relationship, developed alongside ongoing maintenance and
+                    incremental improvements.
+                </p>
+                <p>
+                    Working closely with DOAJ’s product and editorial teams, I helped translate their standards and
+                    working practices into a coherent workflow. I refined and structured the compliance checks,
+                    established the guiding design principles and designed the complete Triage experience—from
+                    individual interactions to the overview that records the application’s history.
+                </p>
+            </section>
+            <section class="case-study__section">
+                <h2>Defining the workflow, not just the interface</h2>
+
+                <p>
+                    The project’s initial outline placed UX and UI design after requirements definition. I recommended
+                    bringing product design in earlier because decisions about how reviewers would move through checks,
+                    record their findings and progress an application were themselves part of defining the requirements.
+                    Being involved before those requirements were fixed allowed me to help shape the workflow rather
+                    than simply translate a completed specification into screens.
+                </p>
+
+                <p>
+                    Before our first face-to-face session, I reviewed the existing documentation and earlier UX
+                    findings, then created an initial workflow proposal and presentation for the Editorial Team. This
+                    made the proposed structure tangible enough for the team to challenge and annotate. During the
+                    session, I revised the design and facilitated a short exercise in which we physically arranged the
+                    checks around how the Triage specialist completed the work.
+                </p>
+                <p>
+                    The early prototype became a shared requirements tool. Feedback exposed needs that were not yet
+                    explicit in the project documentation—for example, recording rejection reasons for reporting,
+                    connecting communication with changes of status, and preserving answers and notes across stages.
+                    Through weekly meetings, I translated these discussions into revised questions, states, interaction
+                    rules and workflows for Triage and the stages that follow.
+                </p>
+                <figure class="case-study-figure triage-order">
+                    <Image src={triageOrderPhoto} format="webp" quality={82}
+                           alt="Printed Triage questions arranged into groups and sequences across a table, with handwritten notes added during a face-to-face workshop."
+                           class="workshop-photo"/>
+                    <figcaption class="board-note">
+                        During our workshop in London, we arranged the individual checks into a sequence that reflected
+                        how the experienced Triage specialist worked....
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Translating “guided by the system” into design principles</h2>
+
+                <p>
+                    One of the client's central requirements was that Editors should be guided by the system through
+                    each stage.
+                    This described the intended outcome, but did not prescribe how that guidance should work. I
+                    translated it
+                    into five concrete principles, refined and agreed with the client through our workshops and
+                    discussions.
+                </p>
+
+                <h3>Present one clear step at a time</h3>
+                <p>
+                    Break conditional tasks into steps and reveal follow-up fields only when they become relevant,
+                    rather than
+                    showing every possible path at once.
+                </p>
+
+                <h3>
+                    Provide the right context for each task
+                </h3>
+                <p>
+                    Place the relevant submitted data, instructions and external resources alongside each check. Keep
+                    the
+                    journal title, ISSNs and website visible throughout Triage so reviewers can focus without losing the
+                    application's identity.
+                </p>
+
+                <h3>Make the expected action immediate</h3>
+                <p>
+                    Make the usual next step the easiest: assign yourself and begin, record an answer and continue, or
+                    send the
+                    prepared email and reject when rejection is recommended. Keep less common alternatives available
+                    without
+                    allowing them to compete with the expected path.
+                </p>
+                <h3>Preserve a complete history</h3>
+                <p>
+                    Record every answer, note, correction, assignment and communication, including who performed it and
+                    when.
+                </p>
+                <h3>Recommend, but leave the decision with the reviewer</h3>
+                <p>
+                    Apply the agreed rules consistently and recommend an outcome, while allowing authorised reviewers to
+                    override it. The only fixed progression rule is that an application cannot move to another review
+                    stage
+                    until every Triage check is answered; rejection remains possible at any point.
+                </p>
+                <p>
+                    These principles gave us a shared way to resolve later edge cases without adding arbitrary
+                    restrictions. They also established a foundation for the later stages of the editorial workflow.
+                </p>
+
+            </section>
+
+            <section class="case-study__section">
+                <h2>One question at a time—with freedom to move</h2>
+                <figure class="case-study-figure check">
+                    <img
+                            src="/images/doaj/triage-check.png"
+                            width="1903"
+                            height="909"
+                            loading="lazy"
+                            alt="DOAJ Triage design showing an expanded ISSN compliance check with application information, instructions, resources, notes and explicit answer options."
+                    />
+
+                    <figcaption>
+                        One compliance check brings together the information, guidance and
+                        actions needed to complete it.
+                    </figcaption>
+                </figure>
+                <p>
+                    The existing interface presents the application as one long, continuous form. Reviewers move
+                    backwards and
+                    forwards between fields, remember the most efficient order of checks and know for themselves which
+                    external
+                    resources to consult.
+                </p>
+                <p>
+                    I designed Triage around one compliance check at a time. Each view brings together the criterion,
+                    relevant
+                    information supplied by the publisher, instructions and reminders, links to required resources, a
+                    question-specific note and explicit answer options. Conditional steps appear only when needed. After
+                    a
+                    straightforward answer, the next unanswered check opens and keyboard focus moves to its heading.
+                </p>
+
+                <p>
+                    This structure supports reviewers who are learning the process, but it initially concerned the
+                    experienced
+                    Triage specialist. She could complete the familiar process in approximately seven minutes and
+                    worried that
+                    moving through individual questions would replace that speed with unnecessary clicking.
+                </p>
+
+                <p>
+                    Rather than choosing the order in isolation, I facilitated a workshop with the Editorial Team lead
+                    and
+                    Triage specialist to understand how the review is completed in practice. The specialist explained
+                    that when
+                    she opens the journal's website or the ISSN Portal, she checks several related criteria while that
+                    resource
+                    is in front of her. We used this working pattern to group and order the checks, translating her
+                    efficient
+                    process into a structure that new reviewers can follow while allowing experienced reviewers to work
+                    in a
+                    familiar way.
+                </p>
+
+                <p>
+                    The form itself also provides its navigation through a two-level accordion. Expanding a group
+                    reveals
+                    its
+                    short, meaningful question headings; expanding a question reveals the complete check. Reviewers can
+                    reach
+                    any check within two interactions, work in a different order and then return to the default
+                    sequence. Checks
+                    they have already answered are skipped automatically.
+                </p>
+
+                <p>
+                    Answer controls follow a consistent visual and semantic pattern. Compliance, non-compliance,
+                    required
+                    changes and uncertainty are distinguished through colour, iconography and explicit wording. New
+                    reviewers
+                    can read the complete answer, while experienced reviewers can recognise recurring actions quickly
+                    without
+                    relying on colour alone.
+                </p>
+
+                <p>
+                    Accessibility behaviour is part of the design specification. The prototypes define a consistent
+                    heading
+                    hierarchy, button semantics and expanded states for the accordion headers, native radio-button
+                    behaviour
+                    with arrow-key navigation, and focus movement to the next question heading. I annotated the required
+                    semantic HTML, ARIA attributes and keyboard interactions for developer reference.
+                </p>
+
+                <p>
+                    The result is a guided default path without an inflexible wizard: the system can teach the workflow
+                    while
+                    preserving direct access for people who already know it.
+                </p>
+
+            </section>
+
+            <section class="case-study__section">
+                <h2>Supporting decisions without making them</h2>
+
+                <p>
+                    Completing the checks is only part of Triage. Reviewers must also understand what their answers mean
+                    for the
+                    application and decide whether to reject it or move it to another stage.
+                </p>
+
+                <p>
+                    I designed the workflow so that the system interprets the recorded answers and recommends an
+                    appropriate
+                    outcome. Some non-compliant answers can trigger an immediate rejection recommendation. Others result
+                    in
+                    rejection only after the complete review, while answers with different severity values contribute to
+                    the
+                    recommendation for the next stage.
+                </p>
+
+                <p>
+                    An early version of the requirements assumed that the system would make these decisions
+                    automatically.
+                    Through discussion, we changed this to a recommendation model: the system applies the agreed rules
+                    consistently, but an Editorial reviewer retains authority over the outcome. A reviewer can reject an
+                    application at any point, continue after an early rejection recommendation, or override the
+                    recommended
+                    destination once every check is complete.
+                </p>
+
+                <p>
+                    This principle also helped us resolve later edge cases. We considered whether the system should
+                    prevent
+                    progression when every answer was non-compliant. I recommended against introducing a special
+                    restriction:
+                    blocking one particular combination would immediately raise further questions about where the
+                    boundary
+                    belonged—for example, whether a single compliant answer should change the result.
+                </p>
+
+                <p>
+                    Instead, the overview presents every completed check with the same colour, icon and wording used
+                    when
+                    recording the answer. Unusual patterns remain visible for the Editorial Team to review, while the
+                    final
+                    decision stays with the authorised user.
+                </p>
+
+                <p>
+                    When rejection is recommended, the overview presents the suggested outcome alongside editable email
+                    content
+                    for the publisher. The expected action—sending the email and rejecting the application—is
+                    immediately
+                    available, while reviewers can still continue the assessment or choose a different outcome.
+                </p>
+
+                <p>
+                    The result is transparent decision support rather than automated decision-making: the system makes
+                    the rules
+                    easier to apply without replacing editorial judgement.
+                </p>
+
+            </section>
+            <section class="case-study__section">
+                <h2>Creating one continuous application record</h2>
+
+                <p>
+                    The editorial review can pass between several people and stages, so information about the
+                    application
+                    cannot
+                    live only inside individual forms. I designed the overview page as the application's permanent
+                    record and
+                    control centre.
+                </p>
+
+                <p>
+                    At any point, reviewers can see who is assigned, read general notes and emails sent through the
+                    system, and
+                    review the application's history. Each completed stage records its questions, answers,
+                    question-specific
+                    notes and corrections, together with who performed each action and when.</p>
+
+                <p>
+                    The available actions respond to the application's current state. A reviewer might assign the
+                    application,
+                    begin Triage, transfer responsibility, reject it or complete a recommended outcome. This separation
+                    gives
+                    each module space to focus on its immediate task while the overview preserves continuity and
+                    accountability
+                    across the complete process.
+                </p>
+
+                <p>
+                    Although only Triage has been designed in detail, the same structure is intended to connect the five
+                    later
+                    stages as they are developed and released.
+                </p>
+
+            </section>
+            <section class="case-study__section">
+                <h2>Designing beyond the first release</h2>
+
+                <p>
+                    The detailed design deliberately focuses on Triage, the first module to be implemented and released.
+                    However, I designed it as part of a larger editorial process rather than as an isolated form. The
+                    shared
+                    overview, interaction principles and application history establish a foundation for later stages
+                    without
+                    prescribing their detailed design prematurely.
+                </p>
+
+                <p>
+                    I also proposed two longer-term directions for the wider system.
+                </p>
+
+                <h3>Preserve the history after acceptance</h3>
+
+                <p>
+                    Applications and journals currently remain separate records connected through metadata. I proposed
+                    treating
+                    an accepted journal as the continuation of its application, allowing administrators to access the
+                    complete
+                    history from submission through review to inclusion in DOAJ.
+                </p>
+
+                <h3>Turn workflow data into operational insight</h3>
+
+                <p>
+                    I explored how a redesigned dashboard could use information recorded by the workflow to show how
+                    many
+                    applications are active at each stage and identify records that may need attention—for example, a
+                    Triage
+                    review that was started but has remained unfinished.
+                </p>
+
+                <p>
+                    These concepts had not yet been prioritised at the time of writing. They demonstrate how the Triage
+                    design
+                    could support the wider service while keeping the immediate delivery focused.
+                </p>
+
+            </section>
+            <section class="case-study__section">
+                <h2>Making branching behaviour buildable</h2>
+
+                <p>
+                    Triage contains many possible combinations of answers, follow-up fields and outcomes. Creating one
+                    exhaustive high-fidelity prototype would have meant reproducing much of the application's logic
+                    before
+                    development began.
+                </p>
+
+                <p>
+                    Instead, we selected representative scenarios and I created interactive walkthroughs of the most
+                    important
+                    paths. One scenario, for example, shows a reviewer recording a compliant answer to the first check
+                    and a
+                    non-compliant answer to the second, receiving an early rejection recommendation, and completing the
+                    rejection from the overview page.
+                </p>
+
+                <p>
+                    These scenarios gave the client a concrete way to review and agree the intended behaviour without
+                    requiring
+                    every possible combination to be prototyped. I also used them when presenting the new design to the
+                    wider
+                    Editorial Team.
+                </p>
+
+                <p>
+                    My prototypes included detailed annotations covering state changes, semantic structure, accessible
+                    labels,
+                    keyboard and focus behaviour, and important edge cases. Working with our QA specialist, I translated
+                    the
+                    agreed behaviour into functional scenarios and acceptance criteria.
+                </p>
+
+                <p>
+                    By working closely with the Editorial Team throughout the project, we arrived at an agreed design
+                    that
+                    reflects how experienced reviewers work while creating a clearer, more supportive path for people
+                    learning
+                    the process. The interactive scenarios, annotations and acceptance criteria translate that shared
+                    solution
+                    into an implementation-ready specification for the development and QA teams.
+                </p>
+            </section>
+        </article>
+    </main>
+</BaseLayout>

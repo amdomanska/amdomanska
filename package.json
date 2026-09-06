@@ -12,9 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.1"
+    "astro": "^7.3.1",
+    "sass": "^1.103.1"
   },
   "allowScripts": {
-    "esbuild": true
+    "esbuild": true,
+    "@parcel/watcher@2.6.0": true
   }
 }
