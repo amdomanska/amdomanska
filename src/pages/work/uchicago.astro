@@ -1,0 +1,215 @@
+---
+import {Image} from "astro:assets";
+import uChicago from "../../assets/images/project-notes/chicago.png"
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout
+        title="Making accessibility findings actionable"
+        description="I evaluated UChicago Knowledge, prioritised barriers by severity and user impact, and provided
+                    implementation-ready recommendations the client could take into planning."
+>
+    <main>
+        <article class="case-study project-note">
+            <header class="case-study__header">
+                <p class="case-study__type">Accessibility evaluation</p>
+
+                <h1>Making accessibility findings actionable</h1>
+
+                <p class="case-study__lead">
+                    After adapting the UChicago Knowledge repository to the University of Chicago’s visual
+                    identity, I evaluated the interface for accessibility. I assessed the severity of the
+                    issues I found and translated them into practical recommendations the client and
+                    development team could act upon.
+                </p>
+            </header>
+
+            <section class="case-study__section">
+                <h2>Working within a shared platform</h2>
+
+                <p>
+                    UChicago Knowledge is an institutional repository built on InvenioRDM, an open-source
+                    platform used by research organisations around the world. Its core structure and
+                    interactions were already established, so the initial design work focused on adapting
+                    the interface to feel recognisably part of the University of Chicago.
+                </p>
+
+                <p>
+                    I implemented the visual changes directly in the front end, applying the university’s
+                    typography, colours and branding while retaining the familiar InvenioRDM interaction
+                    patterns. Working closely with the implementation also gave me a detailed understanding
+                    of the repository’s components and recurring interface patterns.
+                </p>
+
+                <figure class="case-study-figure hero">
+                    <Image src={uChicago} format="webp" quality={82}
+                           alt=""
+                           class=""/>
+                    <figcaption>
+                        I adapted the InvenioRDM interface to the University of Chicago’s visual identity while
+                        preserving the platform’s established structure and interactions.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Evaluating impact, not just conformance</h2>
+
+                <p>
+                    I then carried out a structured accessibility evaluation of the repository. Finding
+                    issues was only the first step: the client also needed to understand which barriers
+                    were most serious and what could realistically be done about them.
+                </p>
+
+                <p>
+                    I documented each finding, assessed its severity and explained its likely effect on
+                    users. This allowed the report to distinguish issues that could prevent someone from
+                    completing a task from those with a more limited, but still important, impact.
+                </p>
+
+                <p>
+                    Each finding was paired with a recommended solution. Rather than reproducing
+                    accessibility criteria without context, I described the interface behaviour that
+                    needed to change and suggested a practical direction for resolving it.
+                </p>
+
+                <figure class="report-excerpt">
+                    <div class="report-excerpt__content">
+                        <header class="report-excerpt__header">
+                            <p class="report-excerpt__label">
+                                Example report entry
+                            </p>
+
+                            <p class="report-excerpt__severity">
+                <span class="severity-dots" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                                <span>Critical issue</span>
+                            </p>
+                        </header>
+
+                        <h3>Associate the facet count with its checkbox</h3>
+
+                        <p class="report-excerpt__location">
+                            <strong>Location:</strong> Search filters
+                        </p>
+
+                        <div class="report-excerpt__comparison">
+                            <section class="existing-markup">
+                                <h4>Markup evaluated <span>(simplified)</span></h4>
+
+                                <pre><code class="language-html">&lt;div class="facet-wrapper"&gt;
+    &lt;div class="ui checkbox"&gt;
+        &lt;input
+            type="checkbox"
+            value="open"
+            aria-label="Open"
+        &gt;
+        &lt;label aria-hidden="true"&gt;Open&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div
+        class="facet-count"
+        role="note"
+        aria-label="13,909 results for Open"
+    &gt;
+        &lt;span aria-hidden="true"&gt;13,909&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </section>
+
+                            <section class="report-excerpt__analysis">
+                                <h4>Analysis</h4>
+
+                                <p>
+                                    The <code>role="note"</code> does not represent the purpose of a
+                                    numerical results badge. Adding an <code>aria-label</code> to the
+                                    separate element also does not associate the count with its
+                                    corresponding checkbox.
+                                </p>
+
+                                <p>
+                                    Although the visual design presents the checkbox and count as one
+                                    control, they remain separate elements in the accessibility tree.
+                                    The count should instead form part of the checkbox’s accessible
+                                    label, so it is announced in context when a user reaches the control.
+                                </p>
+
+                                <h4>Recommended implementation</h4>
+
+                                <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox" value="open"&gt;
+    Open
+    &lt;span class="sr-only"&gt;13,909 results&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;span
+    class="ui circular label facet-count"
+    aria-hidden="true"
+&gt;
+    13,909
+&lt;/span&gt;</code></pre>
+                            </section>
+                        </div>
+                    </div>
+
+                    <figcaption>
+                        Each finding combined its location and severity with an explanation of the
+                        barrier and an implementation-ready recommendation, giving
+                        the client more than a checklist of compliance problems.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Connecting design and implementation</h2>
+
+                <p>
+                    My front-end experience helped me evaluate the findings from both a user and delivery
+                    perspective. I could explain why a pattern created a barrier while also considering how
+                    the underlying component might be changed within the constraints of the existing
+                    platform.
+                </p>
+
+                <p>
+                    This made the report useful to different audiences: the client could understand the
+                    significance of each issue, while developers received enough direction to begin
+                    discussing implementation rather than first having to interpret an abstract
+                    accessibility requirement.
+                </p>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Outcome and next step</h2>
+
+                <p>
+                    The client accepted the evaluation and its recommendations. They have since asked me
+                    to lead a prioritisation workshop in which we will review the findings together and
+                    agree which issues should be addressed first.
+                </p>
+
+                <p>
+                    This request extends the work beyond a one-off audit. The report now provides a shared evidence base
+                    for
+                    deciding where changes will have the greatest value and for turning the findings into a realistic
+                    programme
+                    of improvements.
+                </p>
+
+                <p>
+                    This project demonstrates how I approach accessibility as part of product development:
+                    identifying barriers, communicating their significance and helping teams move from
+                    evaluation towards implementable change.
+                </p>
+
+                <p>
+                    <a href="https://knowledge.uchicago.edu/">
+                        Visit the Uchicago Knowledge data repository
+                    </a>
+                </p>
+            </section>
+        </article>
+    </main>
+</BaseLayout>

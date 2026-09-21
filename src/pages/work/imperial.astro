@@ -1,0 +1,90 @@
+---
+import {Image} from "astro:assets";
+import imperial from "../../assets/images/project-notes/imperial.png";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout
+        title="Helix at Imperial College London"
+        description="I adapted InvenioRDM to Imperial’s visual identity, designing and helping implement a distinctive
+                    repository interface without changing its established user journeys."
+>
+    <main>
+        <article class="project-note">
+            <header class="project-note__header">
+                <p class="project-note__eyebrow">Interface design and implementation</p>
+
+                <h1>Bringing Imperial’s identity to a shared repository platform</h1>
+
+                <p class="project-note__summary">
+                    I designed and helped implement the interface for Helix, Imperial College
+                    London’s institutional data repository, built on the open-source InvenioRDM
+                    platform.
+                </p>
+            </header>
+
+            <figure class="case-study-figure hero">
+                <Image src={imperial} format="webp" quality={82}
+                       alt=""
+                       class=""/>
+
+                <figcaption>
+                    The Helix homepage applies Imperial’s visual identity while retaining the
+                    established structure and functionality of InvenioRDM.
+                </figcaption>
+            </figure>
+
+            <section class="project-note__section">
+                <h2>Designing within an established platform</h2>
+
+                <p>
+                    The project did not require a new repository experience from the ground up.
+                    InvenioRDM already provided the principal user journeys and interface
+                    components. My task was to make the service feel recognisably part of
+                    Imperial without disrupting those established patterns.
+                </p>
+
+                <p>
+                    I translated Imperial’s visual identity into the repository’s typography,
+                    colour, spacing and interface details, and designed a more distinctive
+                    homepage that introduces the service and provides clear routes into its
+                    content.
+                </p>
+            </section>
+
+            <section class="project-note__section">
+                <h2>From visual direction to implementation</h2>
+
+                <p>
+                    I worked directly with the existing InvenioRDM interface rather than
+                    producing an extensive standalone prototype. This allowed design decisions
+                    to be tested against real components and technical constraints as the
+                    frontend was developed.
+                </p>
+
+                <p>
+                    I also contributed to the implementation, working within the platform’s
+                    templates and styles to carry the visual direction through to the live
+                    repository.
+                </p>
+            </section>
+
+            <section class="project-note__section">
+                <h2>Result</h2>
+
+                <p>
+                    Helix retains the familiarity and functionality of InvenioRDM while feeling
+                    specific to Imperial College London. The project demonstrates how considered
+                    visual design can give a shared open-source platform its own institutional
+                    identity without introducing unnecessary changes to its underlying user
+                    experience.
+                </p>
+
+                <p>
+                    <a href="https://helix.imperial.ac.uk/">
+                        Visit the Helix data repository
+                    </a>
+                </p>
+            </section>
+        </article>
+    </main>
+</BaseLayout>

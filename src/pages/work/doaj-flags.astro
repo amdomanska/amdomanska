@@ -1,0 +1,170 @@
+---
+import {Image} from "astro:assets";
+import flagNote from "../../assets/images/project-notes/flagNote.png";
+import flagsIndicators from "../../assets/images/project-notes/flagsIndicators.png"
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout
+        title="Collaborative flags"
+        description="I turned a predefined flagging request into an assignable notes system with deadlines and
+                    notifications, reusing a familiar pattern instead of introducing a separate task tool."
+>
+    <main>
+        <article class="case-study project-note">
+            <header class="case-study__header">
+                <p class="case-study__type">Product decision</p>
+
+                <h1>Turning flags into collaborative tasks</h1>
+
+                <p class="case-study__lead">
+                    When DOAJ asked for a way to flag a record for another editor, I identified that the
+                    proposed interaction separated the task from the information needed to complete it. I
+                    redesigned the feature around actionable notes, bringing context, responsibility and
+                    deadlines into one familiar pattern.
+                </p>
+            </header>
+
+            <section class="case-study__section">
+                <h2>Finding the task behind the flag</h2>
+
+                <p>
+                    The original proposal allowed a Managing Editor to flag a journal, application or
+                    update request for another user. The flag would identify who needed to act, while a
+                    separate note would explain what they needed to do.
+                </p>
+
+                <p>
+                    This answered an important operational need: making sure reminders and tasks reached
+                    the right person at the right time, without relying on paper notes or personal
+                    calendars. Earlier user interviews had also repeatedly identified better support for
+                    collaborative work as a priority.
+                </p>
+
+                <p>
+                    Separating the flag from its explanation, however, created several problems. Users
+                    would have to perform two actions for a single task, it might not remain clear which
+                    note belonged to the flag, and newer notes could push the relevant information further
+                    down the list. A separate flag interface would also add more controls to an already
+                    crowded record layout.
+                </p>
+            </section>
+
+
+            <section class="case-study__section">
+                <h2>Making an existing note actionable</h2>
+
+                <p>
+                    I proposed extending the notes editors already used. Adding an assignee and an optional
+                    deadline would turn a general note into a flag, keeping the task and its context
+                    together.
+                </p>
+
+                <p>
+                    Notes assigned to the current user appear before general notes, with their deadline and
+                    available actions clearly displayed. Users with the appropriate permission can resolve
+                    the flag. Resolving it removes the assignee and deadline but preserves the content as a
+                    general note, retaining the information in the record’s history.
+                </p>
+
+                <figure class="case-study-figure hero">
+                    <Image src={flagNote} format="webp" quality={82}
+                           alt=""
+                           class=""/>
+                    <figcaption>
+                        Adding an assignee and deadline turns an existing note into a task without introducing
+                        a separate interaction pattern.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Making the case for the change</h2>
+
+                <p>
+                    Because the original proposal had already been estimated, I needed to demonstrate that
+                    the broader model would not introduce disproportionate complexity.
+                </p>
+
+                <p>
+                    I mapped the new behaviour onto the existing notes pattern and created wireframes for
+                    journal records, application forms and dashboards. This allowed me to show both my
+                    manager and the client that the proposal still delivered the feature they had
+                    requested, but in a form that better reflected their editorial work and could support
+                    more than one narrowly defined scenario.
+                </p>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Carrying priority across the product</h2>
+
+                <p>
+                    The feature needed to remain useful beyond the individual record. I designed dashboard
+                    and search behaviour that allows users to find records flagged for them and prioritises
+                    those with the nearest deadlines.
+                </p>
+
+                <p>
+                    The dashboard displays the most urgent assigned note.
+                    To support oversight, flagged journals are identified consistently throughout the system, and
+                    administrators
+                    can filter the journal search to show only records containing a flag. An outlined flag indicates a
+                    task
+                    assigned to any user, while a filled flag shows that it is assigned to the current user, making
+                    records that
+                    require their attention immediately recognisable. Users are also notified when a flag is assigned
+                    to them and again as its deadline approaches.
+                </p>
+
+                <figure class="case-study-figure hero">
+                    <Image src={flagsIndicators} format="webp" quality={82}
+                           alt=""
+                           class=""/>
+                    <figcaption>
+                        Users can filter records assigned to them, prioritise them by deadline and preview the most
+                        urgent note
+                        directly from the dashboard. Filled and outlined flags distinguish records assigned to the
+                        current user
+                        from those assigned to someone else.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Choosing the right scope</h2>
+
+                <p>
+                    My initial proposal allowed several flagged notes on the same record, supporting
+                    separate tasks for different people. Discussion with the Editorial Team showed that
+                    this flexibility did not address an important current use case. One flag per record was
+                    sufficient for their immediate needs and considerably simpler to implement.
+                </p>
+
+                <p>
+                    We therefore retained the actionable-note model while limiting each record to one flag.
+                    Because the design extended the existing notes feature rather than introducing a
+                    separate task-management system, the estimated development effort remained comparable
+                    to the original proposal.
+                </p>
+            </section>
+
+            <section class="case-study__section">
+                <h2>Result</h2>
+
+                <p>
+                    The feature was implemented for journals, with the underlying pattern designed so it can also be
+                    enabled for
+                    applications and update requests when needed.
+                    Editors can assign a contextual task, add a deadline, find it from their
+                    dashboard or search, receive relevant notifications and resolve it without losing the original note.
+                </p>
+
+                <p>
+                    The result delivers the straightforward flagging feature the client requested while
+                    supporting the complete lifecycle of the task behind it. It also demonstrates how an
+                    existing product pattern can be extended to meet a new need without adding unnecessary
+                    complexity for users or developers.
+                </p>
+            </section>
+        </article>
+    </main>
+</BaseLayout>
