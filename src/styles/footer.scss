@@ -1,0 +1,27 @@
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    margin-block-start: 5rem;
+    padding-block: 2rem;
+    border-top: 1px solid var(--accent);
+
+    &__identity {
+        margin: 0;
+        line-height: 1.6;
+
+        span {
+            display: block;
+            font-size: 0.875rem;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+    }
+}
