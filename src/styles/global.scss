@@ -93,7 +93,7 @@ body {
     }
 }
 
-:focus {
+:focus-visible {
     outline: 5px solid #E02EFF;
     outline-offset: 5px;
 }
@@ -105,11 +105,6 @@ body {
     padding: .5rem;
     color: var(--colour-text);
     text-decoration: none;
-    &:hover,
-    &:focus,
-    &:active {
-        outline: 5px var(--accent) solid;
-    }
 }
 
 main {
