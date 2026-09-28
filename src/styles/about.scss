@@ -1,0 +1,82 @@
+:root {
+    --accent: var(--brand-yellow);
+}
+
+.background {
+    position: relative !important;
+    width: 70rem;
+    top: -49rem;
+    left: -7rem;
+    transform: rotate(176deg);
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+
+    .link-card {
+        position: relative;
+        border: 1px solid var(--accent);
+
+        border-radius:
+                3px 6px 2px 5px /
+    5px 2px 6px 3px;
+        width: 85%;
+        gap: 2rem;
+        min-height: 20rem;
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: -2px;
+
+            border: 1px solid var(--accent-color);
+
+            border-radius:
+                    5px 2px 6px 3px /
+        2px 6px 3px 5px;
+
+            transform: rotate(-0.15deg);
+            opacity: 0.25;
+
+            pointer-events: none;
+        }
+        &:nth-child(2) {
+            border-radius: 5px 2px 6px 3px / 3px 6px 2px 5px;
+        }
+
+        &:nth-child(2)::after {
+            inset: -1px -2px -2px -1px;
+            border-radius: 2px 5px 3px 6px / 6px 3px 5px 2px;
+            transform: rotate(0.15deg);
+        }
+
+        /* 3 */
+        &:nth-child(3) {
+            border-radius: 2px 5px 4px 3px / 4px 3px 6px 2px;
+        }
+
+        &:nth-child(3)::after {
+            inset: -2px -1px -1px -2px;
+            border-radius: 6px 3px 2px 5px / 3px 5px 2px 6px;
+            transform: rotate(-0.08deg);
+        }
+    }
+    a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        color: var(--colour-text);
+        text-decoration: none;
+        :hover, :focus, :active {
+            img {
+                background-color: var(--accent-hover);
+            }
+        }
+    }
+
+}

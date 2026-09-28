@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/mex.scss";
+import bg from "../../assets/images/mex-bg.svg"
+import clientLogo from "../../assets/images/rki/logo.png"
+import userJourney from "../../assets/images/rki/userJourney.png"
 import annotations from "../../assets/images/rki/annotations.png";
 import improvements from "../../assets/images/rki/improvements.png";
 import landingPage from "../../assets/images/rki/landingPage.png";
@@ -14,28 +17,35 @@ import {Image} from "astro:assets";
 const project = {
     client: "MEx · Robert Koch Institute",
     role: "Product designer & project manager",
-    contributions:
-        "Research · UX/UI design · Client facilitation · Front-end development · Prioritisation and delivery",
+    contributions: [
+        "Research",
+        "UX/UI design",
+        "Client facilitation",
+        "Front-end development",
+        "Prioritisation and delivery"
+    ],
     team: "Four-person Cottage Labs team working with the RKI client team",
     period: "2025 – present",
-    status: "Implemented · ongoing development and maintenance",
+    status: "Implemented, ongoing development and maintenance",
 };
 ---
 
-<BaseLayout
-        title="MEx Metadata Explorer"
-        description="Designing a metadata catalogue that helps researchers navigate more than 130,000 interconnected records."
->
-    <main class="mex-case-study">
+<BaseLayout title="MEx Metadata Explorer" bg={bg}>
+    <main class="container case-study case-study--mex">
         <article class="case-study">
-            <header class="project-hero">
-                <p class="project-hero__client">{project.client}</p>
+            <div class="hero hero--project hero--project--mex">
+                <p class="hero--project__client">
+                    <span>{project.client}</span>
+                    <Image src={clientLogo} format="webp"
+                           alt="Robert Koch Institute"
+                           class="client-logo"/>
+                </p>
 
-                <h1>
+                <h1 class="hero--project__description easy-read">
                     Helping researchers find the right data across more than 130,000 interconnected records
                 </h1>
 
-                <p class="project-hero__summary">
+                <p class="hero--project__summary easy-read">
                     MEx is a metadata catalogue for the Robert Koch Institute, Germany’s national public health
                     institute. It helps researchers discover relevant datasets, variables, projects and
                     publications—including data that cannot be made publicly available.
@@ -43,293 +53,313 @@ const project = {
 
                 <dl class="project-meta">
                     <div>
-                        <dt>Role</dt>
-                        <dd>{project.role}</dd>
+                        <dt class="sr-only">Roles</dt>
+                        <dd class="tag project-meta--role">{project.role}</dd>
                     </div>
-
-                    <div>
-                        <dt>Period</dt>
-                        <dd>{project.period}</dd>
+                    <div class="project-meta--contributions">
+                        <dt class="sr-only">Contributions</dt>
+                        {project.contributions.map((contribution) => (
+                                <dd class="tag">{contribution}</dd>
+                        ))}
                     </div>
-
-                    <div>
-                        <dt>Status</dt>
-                        <dd>{project.status}</dd>
-                    </div>
-
-                    <div>
-                        <dt>Contributions</dt>
-                        <dd>{project.contributions}</dd>
-                    </div>
-
-                    <div>
-                        <dt>Team</dt>
-                        <dd>{project.team}</dd>
+                    <div class="project-meta--other">
+                        <div class="project-meta--other__item">
+                            <dt>Period:</dt>
+                            <dd>{project.period}</dd>
+                        </div>
+                        <div class="project-meta--other__item">
+                            <dt>Team:</dt>
+                            <dd>{project.team}</dd>
+                        </div>
+                        <div class="project-meta--other__item">
+                            <dt>Status:</dt>
+                            <dd>{project.status}</dd>
+                        </div>
                     </div>
                 </dl>
-            </header>
+            </div>
 
             <section class="case-study__section">
-                <h2>Making complex metadata navigable</h2>
+                <div class="easy-read">
+                    <h2>Making complex metadata navigable</h2>
 
-                <p>
-                    Before researchers request access to a dataset, they need to know whether it could answer their
-                    question. Because much public-health data cannot be made openly available, they must make that
-                    judgement from its metadata: what was collected, which populations and time periods it covers, which
-                    variables it contains and who can provide access.
-                </p>
+                    <p>
+                        Before researchers request access to a dataset, they need to know whether it could answer their
+                        question. Because much public-health data cannot be made openly available, they must make that
+                        judgement from its metadata: what was collected, which populations and time periods it covers,
+                        which
+                        variables it contains and who can provide access.
+                    </p>
 
-                <p>
-                    At MEx’s scale, this becomes a substantial information-architecture challenge. More than 130,000
-                    multilingual records connect datasets with variables, projects, publications, people and
-                    organisational units. Those relationships provide valuable context, but each one also creates
-                    another route through which researchers could lose track of their investigation.
-                </p>
+                    <p>
+                        At MEx’s scale, this becomes a substantial information-architecture challenge. More than 130,000
+                        multilingual records connect datasets with variables, projects, publications, people and
+                        organisational units. Those relationships provide valuable context, but each one also creates
+                        another route through which researchers could lose track of their investigation.
+                    </p>
 
-                <p>
-                    As product designer and project manager, I shaped this experience from discovery through delivery. I
-                    interviewed users, worked with RKI’s metadata experts to clarify requirements and priorities,
-                    designed the UX and UI, coordinated the four-person Cottage Labs team and contributed to the
-                    front-end implementation.
-                </p>
+                    <p>
+                        As product designer and project manager, I shaped this experience from discovery through
+                        delivery. I
+                        interviewed users, worked with RKI’s metadata experts to clarify requirements and priorities,
+                        designed the UX and UI, coordinated the four-person Cottage Labs team and contributed to the
+                        front-end implementation.
+                    </p>
+                </div>
 
-                <figure class="case-study-figure hero">
-                    <Image src={mexSelectedDatasets} format="webp" quality={82}
-                           alt=""
+                <figure class="case-study-figure case-study-figure--mex-selected-datasets">
+                    <Image src={mexSelectedDatasets} format="webp"
+                           alt="MEx search interface showing results alongside a panel of selected datasets."
                            class=""/>
-                    <figcaption>
-                        Caption placeholder: Introduce the search interface and explain that the prototype uses
-                        fictional data.
+                    <figcaption class="board-note">
+                        The search design keeps promising datasets available as researchers refine their query and move
+                        between dataset and variable searches. All prototypes shown in this case study use fictional
+                        metadata.
                     </figcaption>
                 </figure>
             </section>
 
             <section class="case-study__section">
-                <h2>Understanding how researchers work</h2>
+                <div class="easy-read">
+                    <h2>Understanding how researchers work</h2>
 
-                <p>
-                    RKI came to the project with detailed requirements and deep knowledge of its metadata. I interviewed
-                    the client team’s metadata expert and team lead—both users of MEx—to understand how researchers
-                    assess whether a dataset is worth pursuing and what information they need along the way.
-                </p>
+                    <p>
+                        RKI came to the project with detailed requirements and deep knowledge of its metadata. I
+                        interviewed
+                        the client team’s metadata expert and team lead—both users of MEx—to understand how researchers
+                        assess whether a dataset is worth pursuing and what information they need along the way.
+                    </p>
 
-                <p>
-                    Their workflow is not linear. Researchers begin with a broad search for potentially relevant
-                    datasets, then inspect and compare the variables those datasets contain. What they learn during
-                    comparison helps them exclude weaker candidates and informs the next dataset search.
-                </p>
+                    <p>
+                        Their workflow is not linear. Researchers begin with a broad search for potentially relevant
+                        datasets, then inspect and compare the variables those datasets contain. What they learn during
+                        comparison helps them exclude weaker candidates and informs the next dataset search.
+                    </p>
 
-                <p>
-                    We considered combining dataset and variable exploration within one search. This would create a
-                    busier interface and restrict the specialised filters available for each record type. The better
-                    solution is two separate searches—a familiar pattern for researchers—which allows Data Sources
-                    &amp; Datasets Search to support discovery and Variables Search to support detailed comparison.
-                </p>
+                    <p>
+                        We considered combining dataset and variable exploration within one search. This would create a
+                        busier interface and restrict the specialised filters available for each record type. The better
+                        solution is two separate searches—a familiar pattern for researchers—which allows Data Sources
+                        &amp; Datasets Search to support discovery and Variables Search to support detailed comparison.
+                    </p>
 
-                <p>
-                    The trade-off is continuity. Researchers need to move repeatedly between the two searches without
-                    losing track of the datasets they have already considered. Only after narrowing the selection to
-                    the most suitable dataset do they contact the responsible unit to request access.
-                </p>
+                    <p>
+                        The trade-off is continuity. Researchers need to move repeatedly between the two searches
+                        without
+                        losing track of the datasets they have already considered. Only after narrowing the selection to
+                        the most suitable dataset do they contact the responsible unit to request access.
+                    </p>
+                </div>
 
-                <figure class="case-study-figure research-journey">
-                    <!-- todo: Recreate from the approved journey concept in line with the portfolio style -->
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Simplified journey showing the loop from dataset discovery to variable
-                        comparison and back.
-                    </div>
-                    <figcaption>
-                        Caption placeholder: Describe the iterative research journey and identify the visual as a
-                        simplified reconstruction created for this case study.
+                <figure class="case-study-figure case-study-figure--userJourney">
+                    <p class="figure-title handdrawn-underline">How researchers find suitable data?</p>
+                    <Image src={userJourney} format="webp"
+                           alt="simplified user journey showing the loop from dataset discovery to variables comparison and back"
+                           class=""/>
+                    <figcaption class="board-note">
+                        Researchers may revisit their search and refine their selection
+                        several times before identifying suitable datasets.
                     </figcaption>
                 </figure>
             </section>
 
             <section class="case-study__section">
-                <h2>Carrying context between two searches</h2>
+                <div class="easy-read">
+                    <h2>Carrying context between two searches</h2>
 
-                <p>
-                    Keeping the searches separate protects the clarity of each interface but creates a continuity
-                    problem. To bridge them, I proposed and designed <strong>Selected Datasets</strong>: a shared
-                    selection carried between both contexts.
-                </p>
+                    <p>
+                        Keeping the searches separate protects the clarity of each interface but creates a continuity
+                        problem. To bridge them, I proposed and designed <strong>Selected Datasets</strong>: a shared
+                        selection carried between both contexts.
+                    </p>
 
-                <p>
-                    Researchers can gather promising datasets during discovery, use them to focus Variables Search, and
-                    return to refine their selection without starting again. The feature preserves the thread of the
-                    investigation as they narrow a broad set of possibilities into a focused selection worth pursuing.
-                </p>
+                    <p>
+                        Researchers can gather promising datasets during discovery, use them to focus Variables Search,
+                        and
+                        return to refine their selection without starting again. The feature preserves the thread of the
+                        investigation as they narrow a broad set of possibilities into a focused selection worth
+                        pursuing.
+                    </p>
+                </div>
 
-                <figure class="case-study-figure selected-datasets">
-                    <!-- Suggested sources: 9a04995c-09ae-420b-8ce2-4341fe192287.png and 8d4aa0c6-1d3d-49e1-b9b6-e9123aa0255b.png -->
-                    <Image src={mexCarriedContext} format="webp" quality={82}
-                           alt=""
+                <figure class="case-study-figure case-study-figure--selected-datasets">
+                    <figcaption class="board-note">
+                        Selected datasets carry over as filters in the variable search, allowing researchers to explore
+                        and compare their variables without rebuilding their selection.
+                    </figcaption>
+                    <Image src={mexCarriedContext} format="webp"
+                           alt="Focused crops of Data Sources &amp; Datasets Search and Variables Search,
+                        showing that Selected Datasets persists between them."
                            class=""/>
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Focused crops of Data Sources &amp; Datasets Search and Variables Search,
-                        showing that Selected Datasets persists between them.
-                    </div>
-                    <figcaption>
-                        Caption placeholder: Explain how Selected Datasets carries the investigation between the two
-                        specialised searches.
+                </figure>
+            </section>
+
+            <section class="case-study__section">
+                <div class="easy-read">
+                    <h2>Making dense metadata readable</h2>
+
+                    <p>
+                        Presenting MEx’s metadata as a flat reflection of the data model would make it difficult to
+                        understand what matters. I designed reusable cards that group information by meaning and use
+                        human-friendly labels. Long lists and multi-value fields initially show a short preview, with
+                        the
+                        full content available through <strong>Show more</strong>.
+                    </p>
+                </div>
+
+                <figure class="case-study-figure case-study-figure--metadata-cards">
+                    <Image src={missingData} format="webp"
+                           alt="Focused comparison of a record with missing metadata hidden and revealed."
+                           class=""/>
+                    <figcaption class="board-note">
+                        <strong>What’s missing matters. </strong>
+                        Researchers can choose to reveal all metadata fields supported by MEx, including those without
+                        values for the current record. This helps them distinguish between metadata the system does not
+                        support and information missing from a particular record, while keeping the default view
+                        uncluttered.
+                    </figcaption>
+                </figure>
+                <div class="easy-read">
+                    <p>
+                        Core records — datasets, projects and publications — have full landing pages. Supporting
+                        records, such as people and organisational units, open in a drawer with its own navigation
+                        history.
+                        Researchers can inspect related information without leaving the record they are evaluating or
+                        losing the context of their investigation.
+                    </p>
+
+                    <p>
+                        The difference between these behaviours also needed to be predictable. Navigation to a core
+                        record
+                        uses a semantic link, while opening a drawer is an action and uses a button. Styling every
+                        action as
+                        a conventional button would have overwhelmed pages containing many related records.
+                    </p>
+
+                    <p>
+                        I retained the correct semantics in the markup and created a visual system for core-record
+                        links.
+                        Each is accompanied by a record-type tag with a distinctive icon and label; the same tags appear
+                        in
+                        search results and at the top of landing pages. Sighted users receive a consistent cue about the
+                        destination, while screen-reader users encounter the semantic distinction between navigation and
+                        an
+                        in-page action.
+                    </p>
+                </div>
+
+                <figure class="case-study-figure case-study-figure--record-relationships">
+                    <Image src={recordsRelationship} format="webp"
+                           alt="Supporting-record drawer beside a core-record link and its repeated
+                        record-type tag."
+                           class=""/>
+                    <figcaption class="board-note">
+                        Supporting records are shown in a supporting record drawer. Core records have their full landing
+                        page and open in a new tab.
                     </figcaption>
                 </figure>
             </section>
 
             <section class="case-study__section">
-                <h2>Making dense metadata readable</h2>
+                <div class="easy-read">
+                    <h2>Turning findings into a prioritised roadmap</h2>
 
-                <p>
-                    Presenting MEx’s metadata as a flat reflection of the data model would make it difficult to
-                    understand what matters. I designed reusable cards that group information by meaning and use
-                    human-friendly labels. Long lists and multi-value fields initially show a short preview, with the
-                    full content available through <strong>Show more</strong>.
-                </p>
+                    <p>
+                        After the first implementation phase, I conducted a moderated UX evaluation with a researcher
+                        who
+                        had not used MEx before. I observed them completing two realistic dataset-discovery tasks. The
+                        session confirmed the iterative movement between datasets and variables and exposed issues
+                        across
+                        metadata visibility, discoverability, language and search behaviour.
+                    </p>
 
-                <figure class="case-study-figure metadata-cards">
-                    <!-- Suggested sources: 41d9d3a3-0dd5-4db8-88ae-b419d1535a96.png and 635ad2c7-4c32-461e-bcda-a10e4f5c6e1f.png -->
-                    <Image src={missingData} format="webp" quality={82}
-                           alt=""
+                    <p>
+                        I documented each finding with a proposed response and assessed its expected impact. I then
+                        reviewed
+                        the recommendations with the development team, estimated implementation effort and mapped them
+                        on
+                        an impact–effort matrix. This gave us a shared basis for deciding what to deliver first.
+                    </p>
+                </div>
+
+                <figure class="case-study-figure case-study-figure--evaluation-priorities">
+                    <Image src={improvements} format="webp"
+                           alt="The prioritisation framework with examples of implemented findings"
                            class=""/>
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Focused comparison of a record with missing metadata hidden and revealed.
-                    </div>
-                    <figcaption>
-                        Caption placeholder: Explain how the interface keeps the default view manageable while allowing
-                        researchers to inspect meaningful gaps in the metadata.
+                    <figcaption class="board-note">
+                        All improvements offering high impact for low effort have already been released, with work on
+                        the remaining prioritised findings underway.
                     </figcaption>
                 </figure>
+                <div class="easy-read">
+                    <p>
+                        Several high-impact, low-effort improvements were implemented first. Because the participant
+                        focused
+                        on population, geographical and temporal coverage, we added this information directly to dataset
+                        cards. A new control makes missing metadata explicit without overwhelming the default record
+                        view,
+                        and we reduced the prominence of a global search that had been confused with the specialised
+                        searches.
+                    </p>
 
-                <p>
-                    Core records—datasets, projects and publications—have full landing pages. Supporting
-                    records, such as people and organisational units, open in a drawer with its own navigation history.
-                    Researchers can inspect related information without leaving the record they are evaluating or
-                    losing the context of their investigation.
-                </p>
-
-                <p>
-                    The difference between these behaviours also needed to be predictable. Navigation to a core record
-                    uses a semantic link, while opening a drawer is an action and uses a button. Styling every action as
-                    a conventional button would have overwhelmed pages containing many related records.
-                </p>
-
-                <p>
-                    I retained the correct semantics in the markup and created a visual system for core-record links.
-                    Each is accompanied by a record-type tag with a distinctive icon and label; the same tags appear in
-                    search results and at the top of landing pages. Sighted users receive a consistent cue about the
-                    destination, while screen-reader users encounter the semantic distinction between navigation and an
-                    in-page action.
-                </p>
-
-                <figure class="case-study-figure record-relationships">
-                    <!-- Suggested sources: a082f446-93cf-45c7-8067-daff497115e0.png and c7179300-d0d2-4d85-8a74-8dfba7101db0.png -->
-                    <Image src={recordsRelationship} format="webp" quality={82}
-                           alt=""
-                           class=""/>
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Supporting-record drawer beside a core-record link and its repeated
-                        record-type tag.
-                    </div>
-                    <figcaption>
-                        Caption placeholder: Contrast context-preserving supporting-record actions with navigation to
-                        full core-record pages.
-                    </figcaption>
-                </figure>
+                    <p>
+                        For the more complex search improvements, I led a workshop to translate broad expectations into
+                        implementable matching and ranking rules—for example, whether a partial match in a title should
+                        rank
+                        above an exact match in a description.
+                    </p>
+                </div>
             </section>
 
             <section class="case-study__section">
-                <h2>Turning findings into a prioritised roadmap</h2>
+                <div class="easy-read">
+                    <h2>Designing it - and making it real</h2>
 
-                <p>
-                    After the first implementation phase, I conducted a moderated UX evaluation with a researcher who
-                    had not used MEx before. I observed them completing two realistic dataset-discovery tasks. The
-                    session confirmed the iterative movement between datasets and variables and exposed issues across
-                    metadata visibility, discoverability, language and search behaviour.
-                </p>
+                    <p>
+                        MEx is built on InvenioRDM, but its specialist metadata model and research journey required
+                        substantial adaptation. My development background helped me recognise platform constraints
+                        early,
+                        translate requirements into technical decisions and specify behaviour the team could build.
+                    </p>
 
-                <p>
-                    I documented each finding with a proposed response and assessed its expected impact. I then reviewed
-                    the recommendations with the development team, estimated implementation effort and mapped them on
-                    an impact–effort matrix. This gave us a shared basis for deciding what to deliver first.
-                </p>
-
-                <figure class="case-study-figure evaluation-priorities">
-                    <!-- Suggested sources: 12e0450d-8068-465b-8afe-f9d434d436a2.png and a reconstruction based on 7cc26f1c-de6c-4eaa-ad9b-7eea54b78346.png -->
-                    <!-- todo: make sure the arrows match the rest of the portfolio styles -->
-                    <Image src={improvements} format="webp" quality={82}
+                    <p>
+                        I annotated interaction behaviour, accessible labels, semantic HTML decisions and edge cases so
+                        that the intended experience remained clear during development.
+                    </p>
+                </div>
+                <figure class="case-study-figure case-study-figure--design-to-implementation">
+                    <Image src={annotations} format="webp"
+                           alt=""
+                           class="annotations"
+                            style="margin-bottom: 1rem"/>
+                    <Image src={settings} format="webp"
                            alt=""
                            class=""/>
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Improved search-result card paired with a simplified impact–effort matrix of
-                        representative findings.
-                    </div>
-                    <figcaption>
-                        Caption placeholder: Show how observed usability problems were translated into a prioritised
-                        delivery roadmap without publishing the full internal report.
-                    </figcaption>
-                </figure>
-
-                <p>
-                    Several high-impact, low-effort improvements were implemented first. Because the participant focused
-                    on population, geographical and temporal coverage, we added this information directly to dataset
-                    cards. A new control makes missing metadata explicit without overwhelming the default record view,
-                    and we reduced the prominence of a global search that had been confused with the specialised
-                    searches.
-                </p>
-
-                <p>
-                    For the more complex search improvements, I led a workshop to translate broad expectations into
-                    implementable matching and ranking rules—for example, whether a partial match in a title should rank
-                    above an exact match in a description.
-                </p>
-            </section>
-
-            <section class="case-study__section">
-                <h2>Designing it—and making it real</h2>
-
-                <p>
-                    MEx is built on InvenioRDM, but its specialist metadata model and research journey required
-                    substantial adaptation. My development background helped me recognise platform constraints early,
-                    translate requirements into technical decisions and specify behaviour the team could build.
-                </p>
-
-                <p>
-                    I annotated interaction behaviour, accessible labels, semantic HTML decisions and edge cases so
-                    that the intended experience remained clear during development.
-                </p>
-
-                <figure class="case-study-figure design-to-implementation">
-                    <!-- Suggested sources: 3c71be1c-ed54-4c1f-8a0f-7ea66832f0bf.png, a short code extract based on 3694fa99-044e-45a9-8e52-b7756283eeea.png, and a record-card crop. -->
-                    <Image src={settings} format="webp" quality={82}
-                           alt=""
-                           class=""/>
-                    <Image src={annotations} format="webp" quality={82}
-                           alt=""
-                           class=""/>
-                    <div class="image-placeholder" aria-hidden="true">
-                        Image placeholder: Annotated handover prototype, a short syntax-highlighted configuration
+                    <div class="image-placeholder sr-only">
+                        Annotated handover prototype, a short syntax-highlighted configuration
                         extract and the resulting rendered metadata card.
                     </div>
-                    <figcaption>
-                        Caption placeholder: Connect the design specification, maintainable configuration and final
-                        implemented interface.
+                    <figcaption class="board-note">
+                        To carry the design through to the finished product, I provided the development team with
+                        detailed handover annotations and implemented most of the user interface myself.
                     </figcaption>
                 </figure>
+                <div class="easy-read">
+                    <p>
+                        I implemented all of the styling and the complete record-page interface. A colleague implemented
+                        the search functionality from my designs, while other team members worked on the backend and
+                        infrastructure.
+                    </p>
 
-                <p>
-                    I implemented all of the styling and the complete record-page interface. A colleague implemented
-                    the search functionality from my designs, while other team members worked on the backend and
-                    infrastructure.
-                </p>
-
-                <p>
-                    I also translated the record-page design system into maintainable configuration. Card groupings,
-                    labels, icons and display rules are defined centrally, allowing the interface to evolve alongside
-                    the metadata model without duplicating decisions across templates.
-                </p>
+                    <p>
+                        I also translated the record-page design system into maintainable configuration. Card groupings,
+                        labels, icons and display rules are defined centrally, allowing the interface to evolve
+                        alongside the metadata model without duplicating decisions across templates.
+                    </p>
+                </div>
             </section>
 
-            <section class="case-study__section">
+            <section class="case-study__section easy-read">
                 <h2>An ongoing partnership</h2>
 
                 <p>
@@ -341,5 +371,10 @@ const project = {
             </section>
 
         </article>
+        <img
+                src={bg.src}
+                alt=""
+                class="background"
+        />
     </main>
 </BaseLayout>

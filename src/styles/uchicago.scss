@@ -1,0 +1,89 @@
+:root {
+    --accent: var(--brand-green);
+}
+
+body {
+    .background {
+        width: 75rem;
+        left: -30rem;
+        top: 22rem;
+        transform: rotate(-82deg);
+    }
+}
+
+.imperial-logo {
+    height: 2rem;
+    width: auto;
+}
+
+.case-study-figure {
+    &--uchicago-homepage {
+        border: 5px solid var(--accent);
+        .board-note {
+            width: 35rem;
+            right: 0;
+            transform: rotate(2.8deg);
+            bottom: -4rem;
+        }
+    }
+    &--uchicago-report {
+        h3, p, h4 {
+            font-family: Arial;
+        }
+        &.notebook-page {
+            filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.09));
+
+            > .notebook-page__sheet {
+                box-sizing: border-box;
+                max-height: 110rem;
+                overflow: hidden;
+                padding: 2rem 1.5rem 1.5rem;
+
+                background: #FFF;
+                box-shadow: -4px 0 25px 0 rgba(0, 0, 0, 0.25);
+                border: 1px solid var(--accent);
+
+                --sheet-mask:
+                        radial-gradient(
+                                        circle at 12px 3px,
+                                        transparent 6px,
+                                        #000 6.5px
+                        ) 0 0 / 24px 100% repeat-x,
+                        linear-gradient(
+                                        to bottom,
+                                        #000 94%,
+                                        transparent 100%
+                        ) 0 0 / 100% 100% no-repeat;
+
+                -webkit-mask: var(--sheet-mask);
+                mask: var(--sheet-mask);
+
+                -webkit-mask-composite: source-in, source-over;
+                mask-composite: intersect;
+
+                img {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .severity-dots {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            .severity-dot {
+                display: block;
+                height: 1rem;
+                width: 1rem;
+                border: 1px solid #959393;
+                border-radius: 50%;
+                &--high {
+                    border-color: #b62222;
+                    background: #b62222;
+                }
+            }
+        }
+
+    }
+}

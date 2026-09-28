@@ -1,97 +1,111 @@
 ---
 import {Image} from "astro:assets";
-import doajLogin from "../../assets/images/project-notes/doajLogin.png";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/accessibility.scss";
+import bg from "../../assets/images/accessibility-bg.svg"
+import doajLogin from "../../assets/images/project-notes/doajAccessibilitylogin.png";
+import logo from "../../assets/images/doaj/logo-full.png";
 ---
-<BaseLayout
-        title="Accessible login and registration"
-        description="I turned a WCAG 2.2 review into two implemented improvements: passwordless authentication and bot
-                    protection that no longer asks users to complete a CAPTCHA."
->
-    <main>
+
+<BaseLayout title="Accessible login and registration">
+    <main class="container case-study case-study--accessible-login">
         <article class="case-study project-note">
-            <header class="case-study__header">
-                <p class="case-study__type">Accessibility and implementation</p>
+            <div class="hero hero--project hero--project--accessible-login">
+                <p class="hero--project__client">
+                    <span class="sr-only">Directory of Open Access Journals</span>
+                    <Image src={logo} format="webp"
+                           alt=""/>
+                </p>
 
-                <h1>Removing barriers from login and registration</h1>
+                <h1 class="hero--project__description easy-read">
+                    Removing barriers from login and registration
+                </h1>
 
-                <p class="case-study__lead">
+                <p class="hero--project__summary easy-read">
                     A focused review of the accessibility requirements introduced in WCAG 2.2 led me to
                     improve two parts of DOAJ’s account journey: introducing passwordless login to reduce
                     reliance on memory and replacing a CAPTCHA that could present users with an
                     inaccessible challenge.
                 </p>
-            </header>
+
+                <p class="tag">
+                    <span>Accessibility and implementation</span>
+                </p>
+            </div>
 
             <section class="case-study__section">
-                <h2>Looking beyond visible accessibility</h2>
+                <div class="easy-read">
+                    <h2>Looking beyond visible accessibility</h2>
 
-                <p>
-                    I was asked to review a new release of DOAJ against the criteria introduced in WCAG
-                    2.2. The review drew my attention to the Accessible Authentication guidance, which
-                    addresses the barriers created when people must remember, transcribe or solve something
-                    to access a service.
-                </p>
+                    <p>
+                        I was asked to review a new release of DOAJ against the criteria introduced in WCAG
+                        2.2. The review drew my attention to the Accessible Authentication guidance, which
+                        addresses the barriers created when people must remember, transcribe or solve something
+                        to access a service.
+                    </p>
 
-                <p>
-                    DOAJ’s login process relied on users entering a password. Passwords are not inherently
-                    non-compliant, but they can create avoidable difficulty for people with cognitive
-                    disabilities. I recommended providing a passwordless email-link option so users could
-                    access their account without having to recall or transcribe a password.
-                </p>
+                    <p>
+                        DOAJ’s login process relied on users entering a password. Passwords are not inherently
+                        non-compliant, but they can create avoidable difficulty for people with cognitive
+                        disabilities. I recommended providing a passwordless email-link option so users could
+                        access their account without having to recall or transcribe a password.
+                    </p>
 
-                <p>
-                    Registration presented a different problem. DOAJ used reCAPTCHA v2, which usually
-                    displayed an “I’m not a robot” checkbox but could require an image-recognition challenge
-                    when Google considered a user’s behaviour suspicious. This created a particular risk
-                    for disabled people whose input methods or interaction patterns differed from those the
-                    system expected.
-                </p>
+                    <p>
+                        Registration presented a different problem. DOAJ used reCAPTCHA v2, which usually
+                        displayed an “I’m not a robot” checkbox but could require an image-recognition challenge
+                        when Google considered a user’s behaviour suspicious. This created a particular risk
+                        for disabled people whose input methods or interaction patterns differed from those the
+                        system expected.
+                    </p>
 
-                <p>
-                    The two issues were related, but required different solutions: passwordless login could
-                    make authentication easier, while registration still needed protection against
-                    automated spam without asking users to prove that they were human.
-                </p>
+                    <p>
+                        The two issues were related, but required different solutions: passwordless login could
+                        make authentication easier, while registration still needed protection against
+                        automated spam without asking users to prove that they were human.
+                    </p>
+                </div>
             </section>
 
             <section class="case-study__section">
-                <h2>Comparing accessibility, privacy and complexity</h2>
+                <div class="easy-read">
+                    <h2>Comparing accessibility, privacy and complexity</h2>
 
-                <p>
-                    Rather than recommending the first invisible alternative, I compared three approaches
-                    to registration security:
-                </p>
+                    <p>
+                        Rather than recommending the first invisible alternative, I compared three approaches
+                        to registration security:
+                    </p>
 
-                <ul>
-                    <li>
-                        <strong>Retain reCAPTCHA v2:</strong> already implemented and effective against
-                        automated submissions, but capable of presenting users with an inaccessible
-                        challenge.
-                    </li>
-                    <li>
-                        <strong>Move to reCAPTCHA v3:</strong> invisible during normal use, but dependent on
-                        continuous behavioural scoring. It introduced privacy questions and required
-                        additional decisions and backend handling for users given a suspicious score.
-                    </li>
-                    <li>
-                        <strong>Use a honeypot:</strong> add a hidden trap field and submission-timing check
-                        that bots are likely to trigger, without giving legitimate users another task to
-                        complete. It was simpler and more private, although it required careful calibration
-                        and would not prevent deliberate manual spam.
-                    </li>
-                </ul>
+                    <ul class="custom-list">
+                        <li>
+                            <strong>Retain reCAPTCHA v2:</strong> already implemented and effective against
+                            automated submissions, but capable of presenting users with an inaccessible
+                            challenge.
+                        </li>
+                        <li>
+                            <strong>Move to reCAPTCHA v3:</strong> invisible during normal use, but dependent on
+                            continuous behavioural scoring. It introduced privacy questions and required
+                            additional decisions and backend handling for users given a suspicious score.
+                        </li>
+                        <li>
+                            <strong>Use a honeypot:</strong> add a hidden trap field and submission-timing check
+                            that bots are likely to trigger, without giving legitimate users another task to
+                            complete. It was simpler and more private, although it required careful calibration
+                            and would not prevent deliberate manual spam.
+                        </li>
+                    </ul>
 
-                <p>
-                    I recommended the honeypot approach after considering accessibility, privacy, user
-                    friction and implementation effort together. It addressed the service’s actual need—to
-                    detect automated submissions—without evaluating a user’s ability to complete a puzzle.
-                </p>
+                    <p>
+                        I recommended the honeypot approach after considering accessibility, privacy, user
+                        friction and implementation effort together. It addressed the service’s actual need—to
+                        detect automated submissions—without evaluating a user’s ability to complete a puzzle.
+                    </p>
+                </div>
 
-                <div class="comparison-table-wrapper">
+                <div class="comparison-table-wrapper" style="margin-top: 2.5rem;">
                     <table class="comparison-table">
-                        <caption>
-                            Choosing bot protection without a user challenge
+                        <caption class="sr-only">
+                            Bot protection techniques comparison
                         </caption>
 
                         <thead>
@@ -102,8 +116,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                             <th scope="col" class="recommended">
                                 Honeypot
                                 <span class="comparison-table__recommendation">
-                        Recommended
-                    </span>
+                                    Recommended
+                                </span>
                             </th>
                         </tr>
                         </thead>
@@ -187,62 +201,68 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                 </div>
             </section>
 
-            <section class="case-study__section">
-                <h2>Designing and implementing the alternatives</h2>
+            <section class="case-study__section easy-read">
+                    <h2>Designing and implementing the alternatives</h2>
 
-                <p>
-                    I redesigned the login journey to include passwordless access by email. A user can
-                    provide their email address, receive a secure link and use it to access their account
-                    without entering a password.
-                </p>
+                    <p>
+                        I redesigned the login journey to include passwordless access by email. A user can
+                        provide their email address, receive a secure link and use it to access their account
+                        without entering a password.
+                    </p>
 
-                <p>
-                    For registration, I implemented the front-end part of the honeypot: fields and
-                    interaction behaviour that remain hidden from legitimate users but provide signals that
-                    can identify automated submissions. A colleague implemented the corresponding
-                    server-side validation.
-                </p>
+                    <p>
+                        For registration, I implemented the front-end part of the honeypot: fields and
+                        interaction behaviour that remain hidden from legitimate users but provide signals that
+                        can identify automated submissions. A colleague implemented the corresponding
+                        server-side validation.
+                    </p>
 
-                <p>
-                    Both changes used DOAJ’s established design system. This allowed us to
-                    improve the underlying behaviour without making the account journey feel like a
-                    separate or newly redesigned part of the service.
-                </p>
+                    <p>
+                        Both changes used DOAJ’s established design system. This allowed us to
+                        improve the underlying behaviour without making the account journey feel like a
+                        separate or newly redesigned part of the service.
+                    </p>
 
-                <figure class="case-study-figure hero">
-                    <Image src={doajLogin} format="webp" quality={82}
-                           alt=""
-                           class=""/>
-                    <figcaption>
-                        The honeypot protects registration without adding a visible challenge, while passwordless access
-                        gives
-                        users an alternative to entering a password.
-                    </figcaption>
-                </figure>
+                    <figure class="case-study-figure case-study-figure--doaj-login">
+                        <Image src={doajLogin} format="webp"
+                               alt=""/>
+                        <figcaption class="board-note">
+                            The honeypot protects registration without adding a visible challenge, while passwordless access
+                            gives
+                            users an alternative to entering a password.
+                        </figcaption>
+                    </figure>
             </section>
 
             <section class="case-study__section">
-                <h2>Result</h2>
+                <div class="easy-read">
+                    <h2>Result</h2>
 
-                <p>
-                    Users can now access their account through an emailed link, and registration no longer
-                    depends on an interactive CAPTCHA. Automated checks take place in the background rather
-                    than requiring users to recognise images or complete another verification task.
-                </p>
+                    <p>
+                        Users can now access their account through an emailed link, and registration no longer
+                        depends on an interactive CAPTCHA. Automated checks take place in the background rather
+                        than requiring users to recognise images or complete another verification task.
+                    </p>
 
-                <p>
-                    The rate of new-account creation remained steady after the honeypot was introduced,
-                    indicating that removing the visible challenge did not disrupt legitimate
-                    registrations.
-                </p>
+                    <p>
+                        The rate of new-account creation remained steady after the honeypot was introduced,
+                        indicating that removing the visible challenge did not disrupt legitimate
+                        registrations.
+                    </p>
 
-                <p>
-                    What began as a focused standards review resulted in two implemented improvements. My
-                    contribution extended beyond identifying the accessibility risks: I investigated the
-                    available approaches, assessed their wider trade-offs, recommended a direction,
-                    designed the new interactions and implemented the front end.
-                </p>
+                    <p>
+                        What began as a focused standards review resulted in two implemented improvements. My
+                        contribution extended beyond identifying the accessibility risks: I investigated the
+                        available approaches, assessed their wider trade-offs, recommended a direction,
+                        designed the new interactions and implemented the front end.
+                    </p>
+                </div>
             </section>
         </article>
+        <img
+                src={bg.src}
+                alt=""
+                class="background"
+        />
     </main>
 </BaseLayout>

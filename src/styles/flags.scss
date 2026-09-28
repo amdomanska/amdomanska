@@ -1,0 +1,50 @@
+:root {
+    --accent: var(--brand-pink);
+}
+
+body {
+    .background {
+        width: 96rem;
+        max-width: 100rem;
+        height: auto;
+        left: 51rem;
+        top: -5rem;
+        transform: rotate(-31deg);
+    }
+}
+
+.case-study-figure {
+    &--flag-note {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        img {
+            border: 5px solid var(--accent);
+            &.arrow {
+                position: absolute;
+                border: none;
+                z-index: 3;
+                width: 3.5rem;
+                top: 1.5rem;
+                left: 22rem;
+            }
+        }
+        .board-note {
+            width: 23rem;
+            top: 18rem;
+            left: 0;
+        }
+    }
+    &--flags-indicators {
+        margin-left: -1.5rem;
+        .board-note {
+            width: 30rem;
+            bottom: 0;
+            left: 1rem;
+            transform: rotate(-3deg);
+        }
+    }
+}

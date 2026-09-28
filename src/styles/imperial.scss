@@ -1,0 +1,23 @@
+:root {
+    --accent: var(--brand-blue);
+    --accent-hover: #85CDD5;
+}
+
+body {
+    .background {
+        width: 107rem;
+        left: -25rem;
+        top: -18rem;
+        transform: rotate(-60deg);
+    }
+}
+
+.tag {
+    background-color: var(--accent-hover);
+}
+
+.case-study-figure {
+    &--imperial-homepage {
+        border: 5px solid var(--accent);
+    }
+}

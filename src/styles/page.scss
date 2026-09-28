@@ -1,0 +1,140 @@
+main,
+article.case-study {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+
+    .hero,
+    .hero--project {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-l);
+
+        &__name {
+            font-size: 1.75rem;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        &__client {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            span {
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: capitalize;
+            }
+        }
+
+        &__introduction,
+        &__summary {
+            font-size: 1.25rem;
+        }
+    }
+
+    .project-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5625rem;
+
+        &--role {
+            font-weight: 700;
+        }
+
+        &--contributions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        &--other {
+            display: grid;
+            grid-template-columns: max-content minmax(0, 1fr);
+            gap: 0.5rem 1.5rem;
+
+            &__item {
+                display: grid;
+                grid-column: 1 / -1;
+                grid-template-columns: subgrid;
+                align-items: baseline;
+            }
+
+            dt,
+            dd {
+                margin: 0;
+            }
+        }
+    }
+
+    .case-study-figure {
+        position: relative;
+        &:not(:first-child){
+            margin-top: var(--space-l);
+        }
+        &:not(:last-child) {
+            margin-bottom: var(--space-l);
+        }
+        img {
+            display: block;
+            height: auto;
+        }
+
+        .board-note {
+            position: absolute;
+            z-index: 2;
+            text-align: left;
+            background: var(--note-background);
+            padding: clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
+            box-shadow: 0 0.4rem 1.2rem rgb(33 47 41 / 12%);
+            line-height: 1.35;
+            font-family: var(--font-handwriting);
+            font-size: 1rem;
+
+            // Pieces of translucent tape
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 4.5rem;
+                height: 1.4rem;
+                background: var(--note-tape-background);
+                box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+            }
+
+            &::before {
+                top: -0.55rem;
+                left: -1.7rem;
+                transform: rotate(-38deg);
+            }
+
+            &::after {
+                right: -1.6rem;
+                bottom: -0.35rem;
+                transform: rotate(-38deg);
+            }
+        }
+
+        @media (max-width: 40rem) {
+            .board-note {
+                width: calc(100% - 1rem);
+                margin: -3rem 0 0 20rem;
+                transform: rotate(-0.75deg);
+
+                &::before {
+                    left: -0.5rem;
+                }
+
+                &::after {
+                    right: -0.25rem;
+                }
+            }
+        }
+    }
+
+    .client-link {
+        margin-top: 2rem;
+    }
+}

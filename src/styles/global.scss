@@ -1,18 +1,68 @@
+@font-face {
+    font-family: "Baskerville Punch Display";
+    src: url("/fonts/baskerville-punch/BaskervillePunch-Display.woff2")
+    format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baskerville Punch Display";
+    src: url("/fonts/baskerville-punch/BaskervillePunch-DisplayItalic.woff2")
+    format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baskerville Punch Subhead";
+    src: url("/fonts/baskerville-punch/BaskervillePunch-Subhead.woff2")
+    format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baskerville Punch Subhead";
+    src: url("/fonts/baskerville-punch/BaskervillePunch-SubheadItalic.woff2")
+    format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
-    --colour-background: #fbf9f3;
-    --colour-surface: #fcfaf4;
-    --colour-text: #18352d;
-    --colour-muted: #5e6b64;
-    --colour-border: #c9d0c8;
+    --colour-background: #FEFEF9;
+    --colour-text: #14100D;
+    --brand-pink: #fcdde3;
+    --brand-yellow: #ffcd64;
+    --brand-green: #c3df96;
+    --brand-blue: #b1dfe4;
+    --brand-purple: #dec7e0;
 
-    --font-body:
-            "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --font-display:
-            "Baskervville", Georgia, "Times New Roman", serif;
+    --accent: var(--colour-background);
+    --accent-hover: color-mix(in srgb, var(--accent) 92%, black);
+    --accent-translucent: color-mix(in srgb, var(--accent) 28%, transparent);
 
-    --page-width: 72rem;
+    --note-background: #FBFBF4;
+    --note-tape-background: color-mix(in srgb, var(--accent) 20%, transparent);
+
+    --font-body: "Montserrat", system-ui, sans-serif;
+    --bs-body-font-family: var(--font-body);
+    --font-display: "Baskerville Punch Display", Baskerville, Georgia, serif;
+    --font-subhead: "Baskerville Punch Subhead", Baskerville, Georgia, serif;
+    --font-handwriting: "Segoe Print", "Bradley Hand", cursive;
+
+    --body-letter-spacing: 0.6%;
+
     --reading-width: 46rem;
     --page-gutter: clamp(1.25rem, 4vw, 4rem);
+
+    --space-xl: 6.25rem;
+    --space-l: 3.125rem;
 
 }
 
@@ -24,40 +74,223 @@
 
 html {
     color: var(--colour-text);
-    background: var(--colour-background);
     font-family: var(--font-body);
     line-height: 1.5;
 }
 
 body {
-    min-width: 20rem;
-    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: var(--body-letter-spacing);
+    background-color: var(--colour-background);
+    .background {
+        position: absolute;
+        max-width: unset;
+        z-index: -100;
+    }
 }
 
+main {
+    position: relative;
+}
+
+section {
+    .eyebrow {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 0.625rem;
+    }
+}
 h1,
 h2,
 h3 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-p {
-    margin-block-start: 0;
+h1 {
+    font-size: 3.375rem;
 }
 
-h1,
-h2,
-h3 {
-    font-family: var(--font-display);
-    font-weight: 500;
+h2 {
+    margin-bottom: 1.5rem;
 }
 
-a {
+.easy-read {
+    width: 66%;
+}
+@media (max-width: 999px){
+    .easy-read {
+        width: 100%;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.tag {
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    border-radius: 0.3125rem;
+    background-color: var(--accent-translucent);
+    font-size: .9em;
+    font-variant: small-caps;
+    text-transform: uppercase;
+}
+
+.highlight-link {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+
     color: inherit;
-    text-underline-offset: 0.2em;
+    text-decoration: none;
+    font-weight: inherit;
+    background: none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+
+        // Extend slightly beyond the text
+        left: -0.15em;
+        right: -0.15em;
+        top: 20%;
+        bottom: 5%;
+
+        background: var(--accent);
+        opacity: 0.8;
+
+        // Uneven top, bottom and ends
+        clip-path: polygon(
+                        0% 15%,
+                        8% 6%,
+                        22% 12%,
+                        38% 3%,
+                        55% 9%,
+                        73% 2%,
+                        98% 10%,
+                        100% 80%,
+                        88% 92%,
+                        70% 85%,
+                        50% 97%,
+                        32% 88%,
+                        12% 96%,
+                        1% 85%
+        );
+
+        transform: scaleX(0) rotate(-1deg);
+        transform-origin: left center;
+        transition: transform 250ms ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: none;
+
+        &::before {
+            transform: scaleX(1) rotate(-1deg);
+        }
+    }
+
+    &.cta {
+        padding: 0.5rem 0.85rem;
+        background: none;
+
+        &::before {
+            // Highlight covers the padded link
+            inset: 0;
+            background: var(--accent);
+            opacity: 1;
+
+            // Fully highlighted by default
+            transform: scaleX(1) rotate(-1deg);
+            transition: none;
+        }
+
+        &:hover,
+        &:focus-visible {
+            &::before {
+                //animation: highlight-redraw 350ms ease-out;
+                background: var(--accent-hover);
+            }
+        }
+
+        &--section-main {
+            margin-top: var(--space-l);
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .highlight-link::before {
+            transition: none;
+        }
+    }
+}
+
+@keyframes highlight-redraw {
+    from {
+        transform: scaleX(0) rotate(-1deg);
+    }
+
+    to {
+        transform: scaleX(1) rotate(-1deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cta .highlight-link::before {
+        animation: none;
+    }
+}
+
+.handdrawn-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.15em;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 5%;
+        bottom: -0.05em;
+        width: 100%;
+        height: 0.15em;
+
+        border-bottom: 0.2em solid var(--accent, #79c5ce);
+        border-radius: 55% 40% 60% 45%;
+        transform: rotate(0.6deg);
+        opacity: 0.65;
+
+        pointer-events: none;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: -2%;
+        bottom: 0;
+        width: 104%;
+        height: 0.2em;
+
+        border-bottom: 0.08em solid var(--accent, #79c5ce);
+        border-radius: 35% 65% 45% 55%;
+        transform: rotate(-1deg);
+
+        pointer-events: none;
+    }
 }
 
 img {

@@ -1,106 +1,138 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/about.scss"
+import download from "../assets/images/icons/download.png";
+import email from "../assets/images/icons/email.png";
+import linkedin from "../assets/images/icons/linkedin.png";
+import bg from "../assets/images/contact-bg.svg";
 ---
 <BaseLayout
         title="About me"
-        description=""
 >
-<main class="about-page">
-    <header class="about-page__header">
-        <p class="about-page__eyebrow">About me</p>
+    <main class="container about-page">
+        <article class="case-study">
+            <div class="row justify-content-between">
+            <div class="col-md-7">
 
-        <h1>Curiosity is at the heart of how I work</h1>
+            <section class="hero hero--project hero--project--uchicago">
 
-        <p class="about-page__introduction">
-            I’m Aga Domańska, a product designer for complex, information-rich
-            products, with particular experience in research and open knowledge.
-            I combine user research, workflow and interaction design, accessibility
-            and technical understanding to shape products from their earliest
-            questions through to working interfaces.
-        </p>
-    </header>
+                <div>
+                    <p class="eyebrow">About me</p>
+                    <h1 class="hero--project__description ">Curiosity is at the heart of how I
+                        work</h1>
+                </div>
 
-    <section class="about-page__section">
-        <h2>From implementation to product design</h2>
+                <p class="hero--project__summary ">
+                    I’m Aga Domańska, a product designer for complex, information-rich
+                    products, with particular experience in research and open knowledge.
+                    I combine user research, workflow and interaction design, accessibility
+                    and technical understanding to shape products from their earliest
+                    questions through to working interfaces.
+                </p>
+            </section>
+                    <section class="about-page__section ">
+                        <h2>From implementation to product design</h2>
 
-        <p>
-            My route into product design began in software development and front-end
-            engineering. As my work brought me closer to users and clients, I became
-            increasingly interested not only in how an interface should be built, but
-            why it should take a particular shape in the first place.
-        </p>
+                        <p>
+                            My route into product design began in software development and front-end
+                            engineering. As my work brought me closer to users and clients, I became
+                            increasingly interested not only in how an interface should be built, but
+                            why it should take a particular shape in the first place.
+                        </p>
 
-        <p>
-            That technical background still influences how I design. I understand
-            implementation constraints, prototype with real behaviour in mind and can
-            translate design decisions into detailed, accessible requirements. I work
-            comfortably with developers, but I also know when a technical limitation
-            should be accepted, questioned or solved differently.
-        </p>
-    </section>
+                        <p>
+                            That technical background still influences how I design. I understand
+                            implementation constraints, prototype with real behaviour in mind and can
+                            translate design decisions into detailed, accessible requirements. I work
+                            comfortably with developers, but I also know when a technical limitation
+                            should be accepted, questioned or solved differently.
+                        </p>
+                    </section>
 
-    <section class="about-page__section">
-        <h2>Learning from people who know their subject</h2>
+                    <section class="about-page__section ">
+                        <h2>Learning from people who know their subject</h2>
 
-        <p>
-            I love knowledge: how it is discovered, organised, challenged and shared.
-            Science and research fascinate me, but so do the people behind them. Some
-            of the most rewarding parts of my work are conversations with researchers
-            and subject experts—people who have spent years understanding something
-            deeply and are generous enough to help the rest of us understand it better.
-        </p>
+                        <p>
+                            I love knowledge: how it is discovered, organised, challenged and shared.
+                            Science and research fascinate me, but so do the people behind them. Some
+                            of the most rewarding parts of my work are conversations with researchers
+                            and subject experts—people who have spent years understanding something
+                            deeply and are generous enough to help the rest of us understand it better.
+                        </p>
 
-        <p>
-            My role is not to become the expert in every subject. It is to listen
-            closely, ask useful questions and uncover how that expertise needs to work
-            within a product. I enjoy turning specialist language, complicated
-            relationships and partly unspoken working practices into something that
-            other people can navigate and use.
-        </p>
-    </section>
+                        <p>
+                            My role is not to become the expert in every subject. It is to listen
+                            closely, ask useful questions and uncover how that expertise needs to work
+                            within a product. I enjoy turning specialist language, complicated
+                            relationships and partly unspoken working practices into something that
+                            other people can navigate and use.
+                        </p>
+                    </section>
 
-    <section class="about-page__section">
-        <h2>Making complexity workable</h2>
+                    <section class="about-page__section ">
+                        <h2>Making complexity workable</h2>
 
-        <p>
-            I am drawn to products where the difficulty cannot simply be removed:
-            interconnected metadata, specialist editorial decisions, conditional
-            workflows and large amounts of information. My job is to find the
-            structure within that complexity without oversimplifying the subject itself.
-        </p>
+                        <p>
+                            I am drawn to products where the difficulty cannot simply be removed:
+                            interconnected metadata, specialist editorial decisions, conditional
+                            workflows and large amounts of information. My job is to find the
+                            structure within that complexity without oversimplifying the subject itself.
+                        </p>
 
-        <p>
-            I work closely with users, clients and developers throughout the process.
-            I clarify requirements, map workflows, test assumptions and consider the
-            states and exceptions that are easy to miss. Accessibility is part of that
-            work from the beginning—not a final compliance check. Semantic structure,
-            keyboard behaviour, cognitive load and clear language all contribute to
-            whether a product genuinely works for the people who need it.
-        </p>
+                        <p>
+                            I work closely with users, clients and developers throughout the process.
+                            I clarify requirements, map workflows, test assumptions and consider the
+                            states and exceptions that are easy to miss. Accessibility is part of that
+                            work from the beginning—not a final compliance check. Semantic structure,
+                            keyboard behaviour, cognitive load and clear language all contribute to
+                            whether a product genuinely works for the people who need it.
+                        </p>
 
-        <p>
-            The result I aim for is not merely a polished interface. It is a product
-            whose behaviour makes sense, whose decisions can be explained and whose
-            implementation supports the people it was designed for.
-        </p>
-    </section>
+                        <p>
+                            The result I aim for is not merely a polished interface. It is a product
+                            whose behaviour makes sense, whose decisions can be explained and whose
+                            implementation supports the people it was designed for.
+                        </p>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <section class="about-page__section about-page__contact " style="margin-top: 6rem;">
+                        <h2  id="contact">Let’s talk</h2>
 
-    <section class="about-page__section about-page__contact">
-        <h2>Let’s talk</h2>
+                        <p>
+                            If you are working on a complex product and need someone who can move
+                            comfortably between users, specialist knowledge, design and implementation,
+                            I would be glad to hear about it.
+                        </p>
 
-        <p>
-            If you are working on a complex product and need someone who can move
-            comfortably between users, specialist knowledge, design and implementation,
-            I would be glad to hear about it.
-        </p>
+                        <div class="links" style="margin-top: 2.5rem;">
+                            <a href="mailto: aga.domanska.design@gmail.com">
+                                <img src={email.src} alt="email me" class="email-icon"/>
+                                <strong>aga.domanska.design [at] gmail.com</strong>
+                            </a>
+                            <a class="linkedin" href="www.linkedin.com/in/amdomanska" target="_blank"
+                               rel="noopener noreferrer">
+                                <img src={linkedin.src} alt="linkedin page" class="linkedin_icon"/ >
+                                <strong>LinkedIn</strong>
+                            </a>
+                            <a href="/aga-domanska-cv.pdf" type="application/pdf">
 
-        <a class="button" href="/contact">
-            Contact me
-        </a>
-        <a href="/aga-domanska-cv.pdf" type="application/pdf">
-            View CV
-            <span class="sr-only">(PDF)</span>
-        </a>
-    </section>
-</main>
+                                <img
+                                        src={download.src}
+                                        alt=""
+                                        class="download"
+                                />
+                                <strong>Download CV</strong>
+                            </a>
+                        </div>
+                    </section>
+                    <!--<img-->
+                    <!--        src={bg.src}-->
+                    <!--        alt=""-->
+                    <!--        class="background"-->
+                    <!--/>-->
+                </div>
+            </div>
+        </article>
+    </main>
 </BaseLayout>

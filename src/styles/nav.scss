@@ -1,0 +1,18 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: var(--space-xl);
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        .cta {
+            margin-top: 0;
+        }
+    }
+}
