@@ -9,7 +9,7 @@ import bg from "../assets/images/contact-bg.svg";
 <BaseLayout
         title="About me"
 >
-    <main class="container about-page">
+    <main class="container about-page" id="main-content">
         <article class="case-study">
             <div class="row justify-content-between">
             <div class="col-md-7">
@@ -106,17 +106,16 @@ import bg from "../assets/images/contact-bg.svg";
                         </p>
 
                         <div class="links" style="margin-top: 2.5rem;">
-                            <a href="mailto: aga.domanska.design@gmail.com">
-                                <img src={email.src} alt="email me" class="email-icon"/>
+                            <a href="mailto:aga.domanska.design@gmail.com">
+                                <img src={email.src} alt="" class="email-icon"/>
                                 <strong>aga.domanska.design [at] gmail.com</strong>
                             </a>
-                            <a class="linkedin" href="www.linkedin.com/in/amdomanska" target="_blank"
+                            <a class="linkedin" href="https://www.linkedin.com/in/amdomanska" target="_blank"
                                rel="noopener noreferrer">
-                                <img src={linkedin.src} alt="linkedin page" class="linkedin_icon"/ >
+                                <img src={linkedin.src} alt="" class="linkedin_icon"/>
                                 <strong>LinkedIn</strong>
                             </a>
                             <a href="/aga-domanska-cv.pdf" type="application/pdf">
-
                                 <img
                                         src={download.src}
                                         alt=""

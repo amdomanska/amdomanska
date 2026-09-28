@@ -27,6 +27,11 @@ article.case-study {
                 text-transform: capitalize;
             }
         }
+        @media(max-width: 999px) {
+            &__client > img {
+                display: none;
+            }
+        }
 
         &__introduction,
         &__summary {
@@ -117,18 +122,17 @@ article.case-study {
             }
         }
 
-        @media (max-width: 40rem) {
+        @media (max-width: 999px) {
             .board-note {
-                width: calc(100% - 1rem);
-                margin: -3rem 0 0 20rem;
-                transform: rotate(-0.75deg);
-
-                &::before {
-                    left: -0.5rem;
-                }
-
+                position: static;
+                width: 100%;
+                transform: rotate(0);
+                background: var(--colour-background);
+                box-shadow: none;
+                margin: .5rem 0 !important;
+                &::before,
                 &::after {
-                    right: -0.25rem;
+                    display: none;
                 }
             }
         }

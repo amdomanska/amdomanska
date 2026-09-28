@@ -11,6 +11,8 @@ import triageAppHistory from "../../assets/images/doaj/apphistory.png";
 import triageDashboard from "../../assets/images/doaj/dashboard.png";
 import triageStatistics from "../../assets/images/doaj/statistics.png";
 import triagePrototypes from "../../assets/images/doaj/prototypes.png";
+import old from "../../assets/images/doaj/old.png";
+import check from "../../assets/images/doaj/check.png";
 
 const project = {
     client: "Directory of Open Access Journals",
@@ -30,7 +32,7 @@ const project = {
 ---
 
 <BaseLayout title="DOAJ Editorial Workflow" bg={bg}>
-    <main class="container case-study case-study--ewp">
+    <main class="container case-study case-study--ewp" id="main-content">
         <article class="case-study">
             <div class="hero hero--project hero--project--ewp">
                 <p class="hero--project__client">
@@ -83,7 +85,7 @@ const project = {
             </div>
 
             <section class="case-study__section row">
-                <div class="col-7">
+                <div class="col-lg-7">
                     <h2 class="easy-read">A specialist workflow hidden inside an application form</h2>
                     <p>
                         The Directory of Open Access Journals (DOAJ) evaluates applications from publishers to decide
@@ -121,15 +123,10 @@ const project = {
                     </p>
                 </div>
 
-                <figure class="case-study-figure case-study-figure--existing-interface col-5">
-                    <div class="image-fade-bottom" style="margin-left: 15%;">
-                        <img
-                                src="/images/doaj/old.png"
-                                width="1288"
-                                height="2567"
-                                loading="lazy"
-                                alt="The existing DOAJ editorial interface, with administrative controls and application sections stacked in one long, continuous form."
-                        />
+                <figure class="case-study-figure case-study-figure--existing-interface col-lg-5">
+                    <div class="image-fade-bottom">
+                        <Image src={old} format="webp"
+                               alt="The existing DOAJ editorial interface, with administrative controls and application sections stacked in one long, continuous form." "/>
                     </div>
                     <figcaption class="board-note">
                         And it keeps going...
@@ -195,15 +192,15 @@ const project = {
                     </p>
                 </div>
 
-                <ul class="principles" role="list">
-                    <li class="principle"><h3>Present one clear step at a time</h3>
+                <ul class="principles row g-4">
+                    <li class="principle col-lg-4"><h3>Present one clear step at a time</h3>
                         <p>
                             Break conditional tasks into steps and reveal follow-up fields only when relevant, rather
                             than
                             showing every possible path at once.
                         </p>
                     </li>
-                    <li class="principle">
+                    <li class="principle col-lg-4">
                         <h3>
                             Provide the right context for each task
                         </h3>
@@ -214,21 +211,21 @@ const project = {
                             ISSNs and website visible throughout Triage.
                         </p>
                     </li>
-                    <li class="principle">
+                    <li class="principle col-lg-4">
                         <h3>Keep the expected action one click away</h3>
                         <p>
                             Make the usual next step the easiest action to find and complete, while keeping less common
                             alternatives available.
                         </p>
                     </li>
-                    <li class="principle">
+                    <li class="principle col-lg-4">
                         <h3>Preserve a complete history</h3>
                         <p>
                             Record every answer, note, correction, assignment and communication—including who performed
                             it and when.
                         </p>
                     </li>
-                    <li class="principle">
+                    <li class="principle col-lg-4">
                         <h3>Recommend, but leave the decision with the reviewer</h3>
                         <p>
                             Apply the agreed rules consistently and recommend an outcome, while allowing authorised
@@ -250,13 +247,9 @@ const project = {
                 </div>
 
                 <figure class="case-study-figure case-study-figure--triage-check">
-                    <img
-                            src="/images/doaj/triage-check.png"
-                            width="1903"
-                            height="909"
-                            loading="lazy"
-                            alt="DOAJ Triage design showing an expanded ISSN compliance check with application information, instructions, resources, notes and explicit answer options."
-                    />
+                    <Image src={check} format="webp"
+                           alt="DOAJ Triage design showing an expanded ISSN compliance check with application information, instructions, resources, notes and explicit answer options."
+                           />
 
                     <figcaption class="board-note">
                         One compliance check brings together the information, guidance and

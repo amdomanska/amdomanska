@@ -8,13 +8,13 @@ import bg from "../../assets/images/uchicago-bg.svg";
 ---
 
 <BaseLayout title="Making accessibility findings actionable">
-    <main class="container case-study case-study--uchicago">
+    <main class="container case-study case-study--uchicago" id="main-content">
         <article class="case-study project-note">
             <div class="hero hero--project hero--project--uchicago">
                 <p class="hero--project__client">
                     <span class="sr-only">University of Chicago</span>
                     <Image src={logo} format="webp"
-                           alt="Imperial"
+                           alt=""
                            class="client-logo  imperial-logo"/>
                 </p>
 
@@ -93,15 +93,15 @@ import bg from "../../assets/images/uchicago-bg.svg";
                         </div>
 
                         <h3>
-                            <p class="report-excerpt__severity">
+                            <span class="report-excerpt__severity">
                                 <span class="severity-dots" aria-hidden="true">
                                     <span class="severity-dot severity-dot--high"></span>
                                     <span class="severity-dot severity-dot--medium"></span>
                                     <span class="severity-dot severity-dot--low"></span>
                                 </span>
                                 <span class="sr-only">Critical issue</span>
-                            </p>
-                            Associate the facet count with its checkbox
+                            </span>
+                            <span style="margin-top: 1rem">Associate the facet count with its checkbox</span>
                         </h3>
 
                         <p class="report-excerpt__location">

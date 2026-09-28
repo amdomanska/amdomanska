@@ -14,219 +14,236 @@ import {Image} from "astro:assets";
 ---
 
 <BaseLayout title="Home" bg={bg}>
-	<main class="container">
-		<div class="hero hero--homepage easy-read">
-			<p class="hero__name">Aga Domańska</p>
-			<h1 class="hero__motto">
-				I design digital products that bring people and complex ideas
-				closer together.
-			</h1>
-			<p class="hero__introduction">
-				I’m a product designer with a background in front-end development.
-				I work closely with users, subject experts and developers to turn
-				complex data, requirements and workflows into clear, accessible
-				products—from early discovery and interaction design through to
-				implementation.
-			</p>
-		</div>
+    <main class="container" id="main-content">
+        <div class="hero hero--homepage easy-read">
+            <p class="hero__name">Aga Domańska</p>
+            <h1 class="hero__motto">
+                I design digital products that bring people and complex ideas
+                closer together.
+            </h1>
+            <p class="hero__introduction">
+                I’m a product designer with a background in front-end development.
+                I work closely with users, subject experts and developers to turn
+                complex data, requirements and workflows into clear, accessible
+                products—from early discovery and interaction design through to
+                implementation.
+            </p>
+        </div>
 
-		<section class="projects selected-work" aria-labelledby="selected-work-heading">
-			<h2 id="selected-work-heading">My work</h2>
-			<div class="projects__grid">
-				<div class="projects__grid__row">
-					<a href="/work/ewp/"
-					   class="project-card project-card--case-study ewp"
-					   style={`--card-image: url("${doajLogomark.src}");`}
-					>
-						<div class="project-card__types">
-							<div class="tag">Workflow and interaction design</div>
-						</div>
-						<h3 class="project-card__title">
-								<Image src={doajLogo} format="webp" 
-									   alt="DOAJ"
-									   class="client-logo"/>
-								<span>
-									DOAJ Editorial Workflow
-								</span>
-						</h3>
+        <section class="projects selected-work">
+            <h2 id="selected-work-heading">My work</h2>
+            <div class="projects__grid">
+                <div class="projects__grid__row row gx-4">
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/ewp/"
+                           class="project-card project-card--case-study ewp"
+                           style={`--card-image: url("${doajLogomark.src}");`}
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">Workflow and interaction design</div>
+                            </div>
+                            <h3 class="project-card__title">
+                                <Image src={doajLogo} format="webp"
+                                       alt="DOAJ"
+                                       class="client-logo"/>
+                                <span>
+										DOAJ Editorial Workflow
+									</span>
+                            </h3>
 
-						<p class="project-card__description">
-							I translated specialist editorial knowledge into a guided review workflow that remains efficient for
-							experienced reviewers and easier for new team members to learn.
-						</p>
+                            <p class="project-card__description">
+                                I translated specialist editorial knowledge into a guided review workflow that remains
+                                efficient for
+                                experienced reviewers and easier for new team members to learn.
+                            </p>
 
-						<span class="project-card__link highlight-link">
-							Read case study
-							<span class="sr-only">: DOAJ Editorial Workflow</span>
-							<span aria-hidden="true">→</span>
-						</span>
-					</a>
-					<a href="/work/mex/"
-					   class="project-card project-card--case-study rki"
-					   style={`--card-image: url("${rkiLogomark.src}");`}
-					>
-						<div class="project-card__types">
-							<div class="tag">End-to-end product design</div>
-						</div>
+                            <span class="project-card__link highlight-link">
+								Read case study
+								<span class="sr-only">: DOAJ Editorial Workflow</span>
+								<span aria-hidden="true">→</span>
+							</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/mex/"
+                           class="project-card project-card--case-study rki"
+                           style={`--card-image: url("${rkiLogomark.src}");`}
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">End-to-end product design</div>
+                            </div>
 
-						<h3 class="project-card__title">
-							<Image src={rkiLogo} format="webp" 
-								   alt="DOAJ"
-								   class="client-logo"/>
-							<span>MEx Metadata Explorer</span>
-						</h3>
+                            <h3 class="project-card__title">
+                                <Image src={rkiLogo} format="webp"
+                                       alt=""
+                                       class="client-logo"/>
+                                <span>MEx Metadata Explorer</span>
+                            </h3>
 
-						<p class="project-card__description">
-							From discovery through delivery, I shaped a platform that helps researchers navigate more than
-							130,000 interconnected metadata records.
-						</p>
+                            <p class="project-card__description">
+                                From discovery through delivery, I shaped a platform that helps researchers navigate
+                                more than
+                                130,000 interconnected metadata records.
+                            </p>
 
-						<span class="project-card__link highlight-link" >
-							Read case study
-							<span class="sr-only">: MEx Metadata Explorer</span>
-							<span aria-hidden="true">→</span>
-						</span>
-					</a>
-				</div>
-			</div>
-		</section>
+                            <span class="project-card__link highlight-link">
+								Read case study
+								<span class="sr-only">: MEx Metadata Explorer</span>
+								<span aria-hidden="true">→</span>
+							</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<section class="projects project-notes" aria-labelledby="project-notes-heading">
-			<h2 id="project-card-heading">Project notes</h2>
+        <section class="projects project-notes">
+            <h2 id="project-card-heading">Project notes</h2>
 
-			<div class="projects__grid">
-				<div class="projects__grid__row">
-					<a href="/work/doaj-flags/"
-					   class="project-card project-card--note"
-					>
-						<div class="project-card__types">
-							<div class="tag">Feature design</div>
-							<div class="tag">Product thinking</div>
-						</div>
+            <div class="projects__grid">
+                <div class="projects__grid__row row gx-4">
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/doaj-flags/"
+                           class="project-card project-card--note"
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">Feature design</div>
+                                <div class="tag">Product thinking</div>
+                            </div>
 
-						<h3 class="project-card__title">
-							<Image src={doajLogo} format="webp" 
-								   alt="DOAJ"
-								   class="client-logo  doaj-logo"/>
-							<span>Collaborative flags</span>
-						</h3>
+                            <h3 class="project-card__title">
+                                <Image src={doajLogo} format="webp"
+                                       alt="DOAJ"
+                                       class="client-logo  doaj-logo"/>
+                                <span>Collaborative flags</span>
+                            </h3>
 
-						<p class="project-card__description">
-							I turned a predefined flagging request into an assignable notes system with deadlines and
-							notifications, reusing a familiar pattern instead of introducing a separate task tool.
-						</p>
+                            <p class="project-card__description">
+                                I turned a predefined flagging request into an assignable notes system with deadlines
+                                and
+                                notifications, reusing a familiar pattern instead of introducing a separate task tool.
+                            </p>
 
-						<span class=" project-card__link highlight-link">
+                            <span class=" project-card__link highlight-link">
 							Read project note
 							<span class="sr-only">: Collaborative flags</span>
 							<span aria-hidden="true">→</span>
 						</span>
-					</a>
-					<a href="/work/doaj-accessibility/"
-					   class="project-card project-card--note"
-					>
-						<div class="project-card__types">
-							<div class="tag">Accessibility design</div>
-							<div class="tag">Front-end implementation</div>
-						</div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/doaj-accessibility/"
+                           class="project-card project-card--note"
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">Accessibility design</div>
+                                <div class="tag">Front-end implementation</div>
+                            </div>
 
-						<h3 class="project-card__title">
-							<Image src={doajLogo} format="webp" 
-								   alt="DOAJ"
-								   class="client-logo doaj-logo"/>
-							<span>Accessible login and registration</span>
-						</h3>
+                            <h3 class="project-card__title">
+                                <Image src={doajLogo} format="webp"
+                                       alt="DOAJ"
+                                       class="client-logo doaj-logo"/>
+                                <span>Accessible login and registration</span>
+                            </h3>
 
-						<p class="project-card__description">
-							I turned a WCAG 2.2 review into two implemented improvements: passwordless authentication and bot
-							protection that no longer asks users to complete a CAPTCHA.
-						</p>
+                            <p class="project-card__description">
+                                I turned a WCAG 2.2 review into two implemented improvements: passwordless
+                                authentication and bot
+                                protection that no longer asks users to complete a CAPTCHA.
+                            </p>
 
-						<span class=" project-card__link highlight-link">
+                            <span class=" project-card__link highlight-link">
 							Read project note
 							<span class="sr-only">Accessible login and registration</span>
 							<span aria-hidden="true">→</span>
 						</span>
-					</a>
-				</div>
-				<div class="projects__grid__row">
-					<a href="/work/uchicago/"
-					   class="project-card project-card--note"
-					>
-						<div class="project-card__types">
-							<div class="tag">Accessibility evaluation</div>
-						</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__grid__row row gx-4">
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/uchicago/"
+                           class="project-card project-card--note"
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">Accessibility evaluation</div>
+                            </div>
 
-						<h3 class="project-card__title">
-							<Image src={uchicagoLogo} format="webp" 
-								   alt="UChicago University"
-								   class="client-logo  uchicago-logo"/>
-							<span>Making accessibility findings actionable</span>
-						</h3>
+                            <h3 class="project-card__title">
+                                <Image src={uchicagoLogo} format="webp"
+                                       alt="UChicago University"
+                                       class="client-logo  uchicago-logo"/>
+                                <span>Making accessibility findings actionable</span>
+                            </h3>
 
-						<p class="project-card__description">
-							I evaluated UChicago Knowledge, prioritised barriers by severity and user impact, and provided
-							implementation-ready recommendations the client could take into planning.
-						</p>
+                            <p class="project-card__description">
+                                I evaluated UChicago Knowledge, prioritised barriers by severity and user impact, and
+                                provided
+                                implementation-ready recommendations the client could take into planning.
+                            </p>
 
-						<span class="project-card__link highlight-link">
+                            <span class="project-card__link highlight-link">
 							Read project note
 							<span class="sr-only">Making accessibility findings actionable</span>
 							<span aria-hidden="true">→</span>
 						</span>
-					</a>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 gy-4">
+                        <a href="/work/imperial/"
+                           class="project-card project-card--note"
+                        >
+                            <div class="project-card__types">
+                                <div class="tag">UI design</div>
+                                <div class="tag">Front-end implementation</div>
+                            </div>
 
-					<a href="/work/imperial/"
-					   class="project-card project-card--note"
-					>
-						<div class="project-card__types">
-							<div class="tag">UI design</div>
-							<div class="tag">Front-end implementation</div>
-						</div>
+                            <h3 class="project-card__title">
+                                <Image src={imperialLogo} format="webp"
+                                       alt="Imperial"
+                                       class="client-logo  imperial-logo"/>
+                                <span>Helix at Imperial College London</span>
+                            </h3>
 
-						<h3 class="project-card__title">
-							<Image src={imperialLogo} format="webp" 
-								   alt="Imperial"
-								   class="client-logo  imperial-logo"/>
-							<span>Helix at Imperial College London</span>
-						</h3>
+                            <p class="project-card__description">
+                                I adapted InvenioRDM to Imperial’s visual identity, designing and helping implement a
+                                distinctive
+                                repository interface without changing its established user journeys.
+                            </p>
 
-						<p class="project-card__description">
-							I adapted InvenioRDM to Imperial’s visual identity, designing and helping implement a distinctive
-							repository interface without changing its established user journeys.
-						</p>
-
-						<span class="project-card__link highlight-link">
+                            <span class="project-card__link highlight-link">
 							Read project note
 							<span class="sr-only">Helix at Imperial College London</span>
 							<span aria-hidden="true">→</span>
 						</span>
-					</a>
-				</div>
-			</div>
-		</section>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<section class="about-preview" aria-labelledby="about-preview-heading">
-			<p class="eyebrow about-preview__eyebrow">A little about me</p>
+        <section class="about-preview">
+            <p class="eyebrow about-preview__eyebrow">A little about me</p>
 
-			<h2 id="about-preview-heading">
-				Curiosity is at the heart of how I work.
-			</h2>
+            <h2 id="about-preview-heading">
+                Curiosity is at the heart of how I work.
+            </h2>
 
-			<p>
-				My route into product design began in development and grew through a
-				fascination with how people understand complex information. Today, I
-				bring research, interaction design, accessibility and technical
-				knowledge together to shape products that work in practice.
-			</p>
-			<a href="/about" class="highlight-link cta cta--section-main">
-				More about me
-			</a>
-		</section>
-		<img
-			src={bg.src}
-			alt=""
-			class="background"
-		/>
-	</main>
+            <p>
+                My route into product design began in development and grew through a
+                fascination with how people understand complex information. Today, I
+                bring research, interaction design, accessibility and technical
+                knowledge together to shape products that work in practice.
+            </p>
+            <a href="/about" class="highlight-link cta cta--section-main">
+                More about me
+            </a>
+        </section>
+        <img
+                src={bg.src}
+                alt=""
+                class="background"
+        />
+    </main>
 </BaseLayout>

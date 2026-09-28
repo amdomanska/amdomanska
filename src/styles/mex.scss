@@ -23,21 +23,6 @@ body {
             transform: rotate(-1.5deg);
         }
 
-        @media (max-width: 40rem) {
-            .board-note {
-                width: calc(100% - 1rem);
-                margin: -3rem 0 0 20rem;
-                transform: rotate(-0.75deg);
-
-                &::before {
-                    left: -0.5rem;
-                }
-
-                &::after {
-                    right: -0.25rem;
-                }
-            }
-        }
     }
     &--userJourney {
         .figure-title {
@@ -63,7 +48,6 @@ body {
     }
     &--record-relationships {
         width: 100vw;
-        margin-left: -20rem !important;
         img {
             width: 90%;
             margin: 0 auto;
@@ -73,6 +57,9 @@ body {
             left: 20rem;
             top: -2rem;
         }
+    }
+    @media(min-width: 1000px) {
+        margin-left: -20rem !important;
     }
     &--evaluation-priorities .board-note {
         width: 35rem;

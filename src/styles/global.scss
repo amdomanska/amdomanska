@@ -56,7 +56,6 @@
     --font-subhead: "Baskerville Punch Subhead", Baskerville, Georgia, serif;
     --font-handwriting: "Segoe Print", "Bradley Hand", cursive;
 
-    --body-letter-spacing: 0.6%;
 
     --reading-width: 46rem;
     --page-gutter: clamp(1.25rem, 4vw, 4rem);
@@ -81,12 +80,35 @@ html {
 body {
     font-family: var(--font-body);
     font-weight: 400;
-    letter-spacing: var(--body-letter-spacing);
     background-color: var(--colour-background);
     .background {
         position: absolute;
         max-width: unset;
         z-index: -100;
+    }
+    @media (max-width: 999px) {
+        .background {
+            display: none;
+        }
+    }
+}
+
+:focus {
+    outline: 5px solid var(--accent);
+    outline-offset: 5px;
+}
+
+.skip-link {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: .5rem;
+    color: var(--colour-text);
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+        outline: 5px var(--accent) solid;
     }
 }
 
@@ -234,8 +256,11 @@ h2 {
             margin-top: var(--space-l);
         }
     }
+}
+
+.highlight-link {
     @media (prefers-reduced-motion: reduce) {
-        .highlight-link::before {
+        &::before {
             transition: none;
         }
     }

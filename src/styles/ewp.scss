@@ -48,6 +48,15 @@ body {
             margin: -4rem 15%;
             transform: rotate(4deg);
         }
+        img {
+            margin-left: 15%;
+        }
+        @media(max-width: 999px) {
+            img {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
     }
 
     &--triage-order {
@@ -60,6 +69,11 @@ body {
             width: 100%;
             top: -3rem;
             transform: rotate(-1.2deg);
+        }
+    }
+    @media(max-width: 999px) {
+        &--triage-order {
+            width: 100%;
         }
     }
 
@@ -111,10 +125,7 @@ body {
 }
 
 .principle {
-    flex: 1;
-    min-width: 33%;
     position: relative;
-    padding: 1.5rem;
 
     &::before {
         content: "";
