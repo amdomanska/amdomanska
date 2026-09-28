@@ -47,6 +47,8 @@
     --accent-hover: color-mix(in srgb, var(--accent) 92%, black);
     --accent-translucent: color-mix(in srgb, var(--accent) 28%, transparent);
 
+    --focus-visible: #E02EFF;
+
     --note-background: #FBFBF4;
     --note-tape-background: color-mix(in srgb, var(--accent) 20%, transparent);
 
@@ -94,7 +96,7 @@ body {
 }
 
 :focus-visible {
-    outline: 5px solid #E02EFF;
+    outline: 5px solid var(--focus-visible);
     outline-offset: 5px;
 }
 

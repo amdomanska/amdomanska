@@ -35,13 +35,6 @@ body {
                     }
                 }
 
-                &:focus-visible {
-                    .project-card__link {
-                        outline: 2px solid currentColor;
-                        outline-offset: 4px;
-                    }
-                }
-
                 &__types {
                     display: flex;
                     flex-direction: row;
@@ -127,12 +120,13 @@ body {
                         );
                     }
 
+                    &:focus-visible {
+                        --border: 5px;
+                        --outline: var(--focus-visible);
+                    }
+
                     .project-card__title {
                         font-size: 1.25rem;
-
-                        a:hover {
-
-                        }
 
                         .doaj-logo {
                             height: 1.12875rem;
