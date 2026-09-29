@@ -59,7 +59,9 @@ body {
         }
     }
     @media(min-width: 1000px) {
-        margin-left: -20rem !important;
+        &--record-relationships {
+            margin-left: -20rem !important;
+        }
     }
     &--evaluation-priorities .board-note {
         width: 35rem;
