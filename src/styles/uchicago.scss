@@ -5,8 +5,8 @@
 body {
     .background {
         width: 75rem;
-        left: -30rem;
-        top: 22rem;
+        left: -7rem;
+        top: 29rem;
         transform: rotate(-82deg);
     }
 }
@@ -37,8 +37,7 @@ body {
 
             > .notebook-page__sheet {
                 box-sizing: border-box;
-                max-height: 110rem;
-                overflow: hidden;
+                overflow: visible;
                 padding: 2rem 1.5rem 1.5rem;
 
                 background: #FFF;

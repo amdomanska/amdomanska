@@ -37,6 +37,13 @@ import Foot from "../components/Foot.astro";
 </head>
 
 <body>
+{ bg && <div class="background-container">
+    <img
+            src={bg.src}
+            alt=""
+            class="background"
+    />
+</div> }
 <Nav/>
 <slot/>
 <Foot/>

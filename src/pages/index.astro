@@ -14,7 +14,7 @@ import {Image} from "astro:assets";
 ---
 
 <BaseLayout title="Home" bg={bg}>
-    <main class="container" id="main-content">
+    <main class="container homepage" id="main-content">
         <div class="hero hero--homepage easy-read">
             <p class="hero__name">Aga Domańska</p>
             <h1 class="hero__motto">
@@ -240,10 +240,5 @@ import {Image} from "astro:assets";
                 More about me
             </a>
         </section>
-        <img
-                src={bg.src}
-                alt=""
-                class="background"
-        />
     </main>
 </BaseLayout>
