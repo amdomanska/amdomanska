@@ -18,7 +18,9 @@ body {
 
 .case-study-figure {
     &--uchicago-homepage {
-        border: 5px solid var(--accent);
+        img {
+            border: 5px solid var(--accent);
+        }
         .board-note {
             width: 35rem;
             right: 0;

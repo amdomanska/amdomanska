@@ -38,6 +38,18 @@ body {
             left: 0;
         }
     }
+    @media(max-width: 992px) {
+        &--flag-note {
+            flex-direction: column;
+            img {
+                &.arrow {
+                    left: 0rem;
+                    top: 16rem;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
     &--flags-indicators {
         margin-left: -1.5rem;
         .board-note {

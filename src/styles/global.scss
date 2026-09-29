@@ -58,13 +58,11 @@
     --font-subhead: "Baskerville Punch Subhead", Baskerville, Georgia, serif;
     --font-handwriting: "Segoe Print", "Bradley Hand", cursive;
 
-
     --reading-width: 46rem;
     --page-gutter: clamp(1.25rem, 4vw, 4rem);
 
     --space-xl: 6.25rem;
     --space-l: 3.125rem;
-
 }
 
 *,
@@ -88,7 +86,7 @@ body {
         max-width: unset;
         z-index: -100;
     }
-    @media (max-width: 999px) {
+    @media (max-width: 992px) {
         .background {
             display: none;
         }
@@ -156,7 +154,7 @@ h2 {
 .easy-read {
     width: 66%;
 }
-@media (max-width: 999px){
+@media (max-width: 992px){
     .easy-read {
         width: 100%;
     }

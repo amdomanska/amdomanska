@@ -41,17 +41,21 @@ body {
     img {
         border: 5px solid var(--accent);
     }
+
     &--existing-interface {
         margin-top: .5rem;
+
         .board-note {
             width: 85%;
             margin: -4rem 15%;
             transform: rotate(4deg);
         }
+
         img {
             margin-left: 15%;
         }
-        @media(max-width: 999px) {
+
+        @media(max-width: 992px) {
             img {
                 margin-left: 0;
                 width: 100%;
@@ -61,17 +65,20 @@ body {
 
     &--triage-order {
         width: 50%;
+
         img {
             width: 100%;
             height: auto;
         }
+
         .board-note {
             width: 100%;
             top: -3rem;
             transform: rotate(-1.2deg);
         }
     }
-    @media(max-width: 999px) {
+
+    @media(max-width: 992px) {
         &--triage-order {
             width: 100%;
         }
@@ -84,10 +91,16 @@ body {
         transform: rotate(-2.2deg);
     }
 
-    &--statistics .board-note {
-        width: 20rem;
-        left: calc(100% - 16rem);
-        transform: rotate(13deg);
+    &--statistics {
+        width: 80%; margin-top: -3.125rem;
+        .board-note {
+            width: 20rem;
+            left: calc(100% - 16rem);
+            transform: rotate(13deg);
+        }
+    }
+    @media(max-width: 992px) {
+
     }
 
     &--prototypes .board-note {
