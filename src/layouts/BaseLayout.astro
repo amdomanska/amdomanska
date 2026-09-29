@@ -1,6 +1,6 @@
 ---
 import triageOrderPhoto from "../assets/images/doaj/triage-order-photo.png";
-const { title, bg } = Astro.props;
+const {title, bg} = Astro.props;
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss"
 import "../styles/page.scss"
@@ -12,8 +12,8 @@ import Foot from "../components/Foot.astro";
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
 
     <title>{title} · Aga Domańska</title>
     <meta
@@ -28,21 +28,17 @@ import Foot from "../components/Foot.astro";
     <meta property="og:url" content="https://amdomanska.github.io/">
     <meta property="og:type" content="website">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" href="/favicon.ico" /></head>
+    <link rel="icon" href="/favicon.ico"/>
+</head>
 
 <body>
-<Nav />
-<slot />
-<Foot />
+<Nav/>
+<slot/>
+<Foot/>
 </body>
 </html>
